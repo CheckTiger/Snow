@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="BottomButtonView">
+        <attr name="border_color" format="color"/>
+        <attr name="default_width" format="dimension"/>
+    </declare-styleable>
+</resources>
