@@ -18,24 +18,29 @@ import cn.sxh.snowfox.R;
 public class Tab {
     private Context context;
     private int index;
+    //是否被选中
     private boolean isSelected;
+
     /**
-     * 文本信息
+     *  文本信息
      */
     private String text;
     private int textColor;
     private int selectedTextColor;
     private int textSize;
     private int drawablePadding;
+
+
     /**
-     * icon信息
+     *  icon信息
      */
     private int iconImage;
-    private int selectedIconImge;
+    private int selectedIconImage;
     private int iconHeight;
     private int iconWidth;
+
     /**
-     * Tab布局信息
+     *  Tab布局信息
      */
     private RelativeLayout childView;
     private LinearLayout rootView;
@@ -43,46 +48,43 @@ public class Tab {
     private TextView textTextView;
     private boolean hasMsg;
 
+    /**
+     *  tab选中监听
+     */
     private OnTabSelectedListener onTabSelectedListener;
 
-
-    public Tab(Context context, String text,int index, int textColor, int selectedTextColor, int textSize, int drawablePadding, int iconImage, int selectedIconImge, int iconHeight, int iconWidth, boolean hasMsg) {
+    public Tab(Context context, String text, int textSize, int textColor, int selectedTextColor, int drawablePadding, int iconWidth, int iconHeight, int iconImage, int selectedIconImage, int index, boolean hasMsg) {
         this.context = context;
-        this.index = index;
         this.text = text;
+        this.textSize = textSize;
         this.textColor = textColor;
         this.selectedTextColor = selectedTextColor;
-        this.textSize = textSize;
+        this.drawablePadding=drawablePadding;
 
-        this.drawablePadding = drawablePadding;
         this.iconImage = iconImage;
-        this.selectedIconImge = selectedIconImge;
-        this.iconHeight = iconHeight;
-        this.iconWidth = iconWidth;
-        this.hasMsg = hasMsg;
+        this.selectedIconImage = selectedIconImage;
+        this.index = index;
+        this.iconHeight=iconHeight;
+        this.iconWidth=iconWidth;
+        this.hasMsg=hasMsg;
 
         init();
     }
 
     private void init() {
         initView();
-        /**
-         * 每个tab的父布局
-         */
+
         rootView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 tabSelected();
             }
         });
     }
 
-    /**
-     * 初始化相关的view信息
-     */
     private void initView() {
         rootView = new LinearLayout(context);
-        childView = new RelativeLayout(context);
+        childView=new RelativeLayout(context);
         LinearLayout.LayoutParams rootViewLp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         rootViewLp.weight = 1;
         rootView.setOrientation(LinearLayout.VERTICAL);
@@ -92,16 +94,14 @@ public class Tab {
         iconImageView = new ImageView(context);
 
         /**
-         * icon---View
+         *  icon view
          */
         iconImageView.setImageResource(iconImage);
-        RelativeLayout.LayoutParams iconParam = new RelativeLayout.LayoutParams(iconWidth == 0 ? ViewGroup.LayoutParams.WRAP_CONTENT : iconWidth,
-                iconHeight == 0 ? ViewGroup.LayoutParams.WRAP_CONTENT : iconHeight);
+        RelativeLayout.LayoutParams iconParam=new RelativeLayout.LayoutParams(iconWidth==0? ViewGroup.LayoutParams.WRAP_CONTENT:iconWidth,iconHeight==0? ViewGroup.LayoutParams.WRAP_CONTENT:iconHeight);
         iconParam.addRule(RelativeLayout.CENTER_HORIZONTAL);
         iconImageView.setLayoutParams(iconParam);
         iconImageView.setId(index+1);
         childView.addView(iconImageView);
-
 
         /**
          *  text view
@@ -110,43 +110,38 @@ public class Tab {
         textTextView.setTextColor(textColor);
         textTextView.setTextSize(TypedValue.COMPLEX_UNIT_PX,textSize);
         textTextView.setPadding(0,drawablePadding,0,0);
-        RelativeLayout.LayoutParams txParam=new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,
-                RelativeLayout.LayoutParams.WRAP_CONTENT);
+        RelativeLayout.LayoutParams txParam=new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
         txParam.addRule(RelativeLayout.BELOW,childView.getChildAt(0).getId());
         txParam.addRule(RelativeLayout.CENTER_HORIZONTAL);
         textTextView.setLayoutParams(txParam);
         childView.addView(textTextView);
-        /**
-         * 设置是否有消息提示的红点
-         */
+
+
         if(hasMsg){
             ImageView circleView=new ImageView(context);
             RelativeLayout.LayoutParams param = new RelativeLayout.LayoutParams(30,30);
             param.addRule(RelativeLayout.RIGHT_OF,iconImageView.getId());
-            // TODO: 2017/8/2 需要重新修改消息的提示图标
-            circleView.setBackgroundResource(R.mipmap.ic_launcher);
+            circleView.setBackgroundResource(R.drawable.common_red_round);
             circleView.setLayoutParams(param);
             childView.addView(circleView);
         }
         RelativeLayout.LayoutParams childParam=new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         childView.setLayoutParams(childParam);
         rootView.addView(childView);
+
     }
 
     /**
-     * 选中的tab监听
+     * 选中Tab
      */
-    private void tabSelected(){
-        if (onTabSelectedListener != null) {
-            onTabSelectedListener.onTabSelected(this);
-        }
+    private void tabSelected() {
+        if (onTabSelectedListener != null) onTabSelectedListener.onTabSelected(this);
     }
 
     /**
      * 得到rootView
-     * @return
      */
-    public LinearLayout getRootView(){
+    public LinearLayout getRootView() {
         return rootView;
     }
 
@@ -154,30 +149,24 @@ public class Tab {
         return index;
     }
 
-    public String getText(){
-         return text;
-     }
-
-     public void setTabSelected(boolean isSelected){
-         if (this.isSelected == isSelected) {
-             return;
-         }
-         iconImageView.setImageResource(isSelected ? selectedIconImge : iconImage);
-         textTextView.setTextColor(isSelected ? selectedTextColor : textColor);
-         this.isSelected = isSelected;
-     }
-    /**
-     * tab的选中监听
-     */
-    public interface OnTabSelectedListener{
-        void onTabSelected(Tab tab);
+    public String getText() {
+        return text;
     }
 
-    /**
-     * 对外提供选中的接口回掉事件
-     * @param onTabSelectedListener
-     */
+    public void setTabIsSelected(boolean isSelected) {
+        if (this.isSelected == isSelected) return;
+
+        iconImageView.setImageResource(isSelected ? selectedIconImage : iconImage);
+        textTextView.setTextColor(isSelected ? selectedTextColor : textColor);
+        this.isSelected = isSelected;
+    }
+
     public void setOnTabSelectedListener(OnTabSelectedListener onTabSelectedListener) {
         this.onTabSelectedListener = onTabSelectedListener;
+    }
+
+    public interface OnTabSelectedListener {
+
+        void onTabSelected(Tab tab);
     }
 }

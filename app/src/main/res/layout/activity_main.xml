@@ -5,16 +5,23 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="cn.sxh.snowfox.MainActivity">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        android:id="@+id/textView" />
-    <cn.sxh.snowfox.view.BottomButtonView
+    tools:context="cn.sxh.snowfox.UI.MainActivity">
+    <!--<cn.sxh.snowfox.view.BottomButtonView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="0dp"-->
+        <!--android:layout_weight="1"-->
+        <!--app:border_color="#ff2523f4"-->
+        <!--app:default_width = "2dp" />-->
+    <cn.sxh.snowfox.view.TabBottomView
+        android:id="@+id/tab_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:border_color="#ff2523f4"
-        app:default_width = "2dp" />
+        app:tabTextColor="@color/bottom_icon_up"
+        app:selectedTextColor="@color/common_red"
+        app:tabTextSize="12sp"
+        app:drawablePadding="1dp"
+        app:iconHeight="22dp"
+        app:iconWidth="22dp"
+        app:divideLineColor="@color/common_line_two"
+        app:divideLineHeight="0.3dp"/>
 </LinearLayout>
