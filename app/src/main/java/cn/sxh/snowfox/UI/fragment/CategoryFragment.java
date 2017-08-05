@@ -6,18 +6,23 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+
+import cn.sxh.snowfox.R;
 
 /**
- * Created by snow on 2017/8/3.
+ * Created by snow on 2017/8/5.
  */
 
-public class MyFragment extends Fragment {
+public class CategoryFragment extends Fragment {
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        TextView textView = new TextView(getContext());
-        textView.setText("你好");
-        return textView;
+        View view = inflater.inflate(R.layout.activity_news,container,false);
+        return view;
     }
 }

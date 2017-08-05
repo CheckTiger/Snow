@@ -6,12 +6,6 @@
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="cn.sxh.snowfox.UI.MainActivity">
-    <!--<cn.sxh.snowfox.view.BottomButtonView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="0dp"-->
-        <!--android:layout_weight="1"-->
-        <!--app:border_color="#ff2523f4"-->
-        <!--app:default_width = "2dp" />-->
     <cn.sxh.snowfox.view.TabBottomView
         android:id="@+id/tab_container"
         android:layout_width="match_parent"
