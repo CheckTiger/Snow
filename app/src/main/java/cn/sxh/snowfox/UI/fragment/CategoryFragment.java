@@ -12,7 +12,7 @@ import cn.sxh.snowfox.base.BaseFragment;
 public class CategoryFragment extends BaseFragment {
     @Override
     protected int getContentView() {
-        return R.layout.drawer_switch;
+        return R.layout.category_fragment;
     }
 
     @Override

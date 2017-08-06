@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="picker_default_text_size">12sp</dimen>
+    <dimen name="picker_toolbar_height">40dp</dimen>
+    <dimen name="picker_dialog_height">190dp</dimen>
+    <dimen name="textview_default_padding">5dp</dimen>
+    <dimen name="picker_line_width">1dp</dimen>
+    <dimen name="picker_line_mar">15dp</dimen>
+    <dimen name="picker_height">230dp</dimen>
+
+
+    <dimen name="load_more_footer_height_classic">60dp</dimen>
+    <dimen name="refresh_header_height_twitter">80dp</dimen>
+
+    <dimen name="sprinner_padding">24px</dimen>
+    <dimen name="sprinner">48px</dimen>
+    <dimen name="three_grid_unit">25dp</dimen>
+    <dimen name="one_and_a_half_grid_unit">12dp</dimen>
+
+
+
+    <dimen name="title_normal_height_px">88px</dimen><!--标题栏高度-->
+    <dimen name="space_button_back_normal_px">32px</dimen><!--返回键离左距离-->
+    <dimen name="title_normal_height_dp">44dp</dimen><!--普通选择栏高度-->
+    <dimen name="text_normal_small">13dp</dimen><!--小字体-->
+    <dimen name="text_normal_medium">15dp</dimen><!--中字体-->
+    <dimen name="text_normal_large">17dp</dimen><!--大字体-->
+
+    <dimen name="bga_pp_size_photo_divider">2dp</dimen>
+    <dimen name="bga_pp_size_delete_padding">2dp</dimen>
+
+    <dimen name="alert_width">290dp</dimen>
+    <dimen name="common_circle_width">3dp</dimen>
+    <dimen name="progress_circle_radius">34dp</dimen>
+
+
+
+
+    <dimen name="__picker_iwf_actionBarSize">48dip</dimen>
+    <dimen name="__picker_item_photo_size">80dip</dimen>
+    <dimen name="__picker_item_camera_size">80dip</dimen>
+    <dimen name="__picker_item_directory_height">80dp</dimen>
+</resources>
