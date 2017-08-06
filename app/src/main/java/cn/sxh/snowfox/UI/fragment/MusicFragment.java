@@ -1,28 +1,27 @@
 package cn.sxh.snowfox.UI.fragment;
 
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import cn.sxh.snowfox.R;
+import cn.sxh.snowfox.base.BaseFragment;
 
 /**
  * Created by snow on 2017/8/5.
  */
 
-public class MusicFragment extends Fragment {
+public class MusicFragment extends BaseFragment {
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected int getContentView() {
+        return R.layout.activity_news;
     }
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.activity_news,container,false);
-        return view;
+    protected void initUI(View view) {
+
+    }
+
+    @Override
+    protected void initData() {
+
     }
 }

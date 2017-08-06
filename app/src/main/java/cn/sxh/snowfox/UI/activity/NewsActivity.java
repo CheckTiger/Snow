@@ -1,4 +1,4 @@
-package cn.sxh.snowfox.UI;
+package cn.sxh.snowfox.UI.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

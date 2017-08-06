@@ -1,4 +1,4 @@
-package cn.sxh.snowfox.UI;
+package cn.sxh.snowfox.UI.activity;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
