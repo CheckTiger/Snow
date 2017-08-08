@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 /**
  * Created by snow on 2017/8/6.
@@ -16,6 +17,8 @@ import butterknife.ButterKnife;
 public abstract class BaseFragment extends Fragment {
 
     protected View mRootView;//根布局
+    protected Unbinder unbinder;
+
 
     private boolean isVisible;//控制dialog的显示与关闭
 
@@ -34,7 +37,7 @@ public abstract class BaseFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         isVisible = true;
         mRootView = inflater.inflate(getContentView(),container,false);
-        ButterKnife.bind(this,mRootView);
+        unbinder = ButterKnife.bind(this, mRootView);
         return mRootView;
     }
 
@@ -47,4 +50,10 @@ public abstract class BaseFragment extends Fragment {
 
     protected abstract void initUI(View view);
     protected abstract void initData();
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        unbinder.unbind();
+    }
 }

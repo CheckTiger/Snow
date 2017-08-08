@@ -13,6 +13,6 @@ public interface SnowFoxApi {
      * 1.获取轮播图资源
      * @return
      */
-    @POST("/common/find_advertising")
+    @POST("common/find_advertising")
     Observable<BannerEntity> getBanner();
 }
