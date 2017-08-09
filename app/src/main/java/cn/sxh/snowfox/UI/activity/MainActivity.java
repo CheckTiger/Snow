@@ -12,8 +12,8 @@ import cn.sxh.snowfox.UI.fragment.ShopFragment;
 import cn.sxh.snowfox.UI.fragment.SurpriseFragment;
 import cn.sxh.snowfox.UI.fragment.TechnologyFragment;
 import cn.sxh.snowfox.adapter.FragmentViewPageAdapter;
-import cn.sxh.snowfox.view.Tab;
-import cn.sxh.snowfox.view.TabBottomView;
+import cn.sxh.snowfox.view.tabBottom.Tab;
+import cn.sxh.snowfox.view.tabBottom.TabBottomView;
 
 public class MainActivity extends AppCompatActivity {
 

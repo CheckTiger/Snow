@@ -1,4 +1,4 @@
-package cn.sxh.snowfox.view;
+package cn.sxh.snowfox.view.swiperefresh;
 
 import android.content.Context;
 import android.util.AttributeSet;

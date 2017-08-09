@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<cn.sxh.snowfox.view.TwitterRefreshHeaderView xmlns:android="http://schemas.android.com/apk/res/android"
+<cn.sxh.snowfox.view.swiperefresh.TwitterRefreshHeaderView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@android:color/white">
@@ -41,4 +41,4 @@
             android:layout_height="wrap_content" />
     </com.zhy.autolayout.AutoRelativeLayout>
 
-</cn.sxh.snowfox.view.TwitterRefreshHeaderView>
+</cn.sxh.snowfox.view.swiperefresh.TwitterRefreshHeaderView>

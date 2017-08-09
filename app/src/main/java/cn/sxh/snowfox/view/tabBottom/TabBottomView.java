@@ -1,4 +1,4 @@
-package cn.sxh.snowfox.view;
+package cn.sxh.snowfox.view.tabBottom;
 
 import android.content.Context;
 import android.content.res.TypedArray;
