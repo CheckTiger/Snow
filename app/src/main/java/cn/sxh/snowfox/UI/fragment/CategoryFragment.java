@@ -1,19 +1,27 @@
 package cn.sxh.snowfox.UI.fragment;
 
+import android.app.Activity;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 
 import com.aspsine.swipetoloadlayout.SwipeToLoadLayout;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import cn.sxh.snowfox.API.ApiRetrofit;
 import cn.sxh.snowfox.API.HttpResult;
 import cn.sxh.snowfox.R;
+import cn.sxh.snowfox.UI.fragment.home.Banner;
 import cn.sxh.snowfox.base.BaseFragment;
 import cn.sxh.snowfox.bean.BannerEntity;
+import cn.sxh.snowfox.bean.JuHeBannerToutiaoEntity;
+import cn.sxh.snowfox.view.multitype.Item;
+import cn.sxh.snowfox.view.multitype.MultiTypeAdapter;
+import cn.sxh.snowfox.view.multitype.MultiTypeAsserts;
+import rx.Observable;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
@@ -24,21 +32,34 @@ import rx.schedulers.Schedulers;
 
 public class CategoryFragment extends BaseFragment {
     private static final String TAG = CategoryFragment.class.getSimpleName();
-    @BindView(R.id.swipe_target)
-    RecyclerView swipeTarget;
+//    @BindView(R.id.swipe_target)
+//    RecyclerView swipeTarget;
     @BindView(R.id.swipeToLoadLayout)
     SwipeToLoadLayout swipeToLoadLayout;
 
+    RecyclerView swipeTarget;
+    private JuHeBannerToutiaoEntity mBnnerEntity;
+    private List<Item> items = new ArrayList<>();
+    private MultiTypeAdapter adapter;
+    private Activity activity;
+
+    private String key = "3988f8911b515e58d49ac192823d9960";
     @Override
     protected int getContentView() {
         return R.layout.category_fragment;
     }
 
     @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        this.activity = activity;
+    }
+
+    @Override
     protected void initUI(View view) {
-        ApiRetrofit.getInstance().getBanner().subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Subscriber<BannerEntity>() {
+        swipeTarget = view.findViewById(R.id.swipe_target);
+        ApiRetrofit.getInstance().getBannerByPost(key).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Subscriber<JuHeBannerToutiaoEntity>() {
                     @Override
                     public void onCompleted() {
 
@@ -51,11 +72,15 @@ public class CategoryFragment extends BaseFragment {
                     }
 
                     @Override
-                    public void onNext(BannerEntity bannerEntity) {
-                        String result = bannerEntity.getReason();
-                        Log.e(TAG,"请求数据成功------->>>>>>"+result);
-                        Log.e(TAG,"请求数据成功------->>>>>>"+bannerEntity.getTime());
-                        Log.e(TAG,"请求数据成功------->>>>>>"+bannerEntity.getResult().size());
+                    public void onNext(JuHeBannerToutiaoEntity bannerEntity) {
+                        mBnnerEntity = bannerEntity;
+                        Log.e(TAG,"请求数据成功------->>>>>>"+bannerEntity.getReason());
+                        Log.e(TAG,"请求数据成功------->>>>>>"+bannerEntity.getResult().getData().size());
+                        items.add(new Banner(getActivity(), mBnnerEntity));
+                        adapter = new MultiTypeAdapter(items);
+                        adapter.applyGlobalMultiTypePool();
+                        MultiTypeAsserts.assertAllRegistered(adapter,items);
+                        swipeTarget.setAdapter(adapter);
                     }
                 });
     }

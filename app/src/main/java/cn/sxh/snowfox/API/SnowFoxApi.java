@@ -1,6 +1,11 @@
 package cn.sxh.snowfox.API;
 
 import cn.sxh.snowfox.bean.BannerEntity;
+import cn.sxh.snowfox.bean.JuHeBannerToutiaoEntity;
+import retrofit2.http.Body;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
 import rx.Observable;
 
@@ -10,9 +15,17 @@ import rx.Observable;
 
 public interface SnowFoxApi {
     /**
-     * 1.获取轮播图资源
+     * 1.获取轮播图资源-get方式请求
      * @return
      */
-    @POST("common/find_advertising")
-    Observable<BannerEntity> getBanner();
+    @GET("toutiao/index?&key=3988f8911b515e58d49ac192823d9960")
+    Observable<JuHeBannerToutiaoEntity> getBannerByGet();
+
+    /**
+     * 1.获取轮播图资源--post请求方式
+     * @return
+     */
+    @POST("toutiao/index")
+    @FormUrlEncoded
+    Observable<JuHeBannerToutiaoEntity> getBannerByPost(@Field("key")String key);
 }

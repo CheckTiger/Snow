@@ -3,6 +3,7 @@ package cn.sxh.snowfox.base;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,7 @@ import butterknife.Unbinder;
 
 public abstract class BaseFragment extends Fragment {
 
+    private static final String TAG = BaseFragment.class.getSimpleName();
     protected View mRootView;//根布局
     protected Unbinder unbinder;
 
@@ -30,6 +32,7 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.e(TAG,"-------------------onCreate----------->>>>>>");
     }
 
     @Nullable
@@ -38,6 +41,7 @@ public abstract class BaseFragment extends Fragment {
         isVisible = true;
         mRootView = inflater.inflate(getContentView(),container,false);
         unbinder = ButterKnife.bind(this, mRootView);
+        Log.e(TAG,"-------------------onCreateView----------->>>>>>");
         return mRootView;
     }
 
@@ -46,6 +50,7 @@ public abstract class BaseFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         initUI(view);
         initData();
+        Log.e(TAG,"-------------------onViewCreated----------->>>>>>");
     }
 
     protected abstract void initUI(View view);
