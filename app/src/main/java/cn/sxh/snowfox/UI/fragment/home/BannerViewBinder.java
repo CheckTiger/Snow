@@ -71,8 +71,12 @@ public class BannerViewBinder extends ItemViewProvider<Banner, BannerViewBinder.
 
     @Override
     public void OnBannerClick(int position) {
+        ArrayList<String> webUrl = new ArrayList<>();
         if (bannerEntity.getResult() != null) {
-            Toast.makeText(context, position + "", Toast.LENGTH_SHORT).show();
+            for (JuHeBannerToutiaoEntity.ResultBean.DataBean result : bannerEntity.getResult().getData()) {
+                webUrl.add(result.getUrl());
+            }
+            Toast.makeText(context, webUrl.get(position), Toast.LENGTH_SHORT).show();
         }
     }
 

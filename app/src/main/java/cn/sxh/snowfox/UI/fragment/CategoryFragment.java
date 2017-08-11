@@ -53,6 +53,7 @@ public class CategoryFragment extends BaseFragment {
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         this.activity = activity;
+
     }
 
     @Override
