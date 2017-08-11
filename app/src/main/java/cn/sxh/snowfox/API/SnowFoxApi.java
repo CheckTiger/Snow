@@ -20,6 +20,12 @@ public interface SnowFoxApi {
      */
     @GET("toutiao/index?&key=3988f8911b515e58d49ac192823d9960")
     Observable<JuHeBannerToutiaoEntity> getBannerByGet();
+    /**
+     * 1.获取轮播图资源-post方式请求
+     * @return
+     */
+    @GET("common/find_advertising")
+    Observable<BannerEntity> getBannerByQuNaWan();
 
     /**
      * 1.获取轮播图资源--post请求方式

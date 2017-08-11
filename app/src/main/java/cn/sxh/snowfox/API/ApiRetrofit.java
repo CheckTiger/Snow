@@ -31,7 +31,7 @@ public class ApiRetrofit {
         return snowFoxApi;
     }
 
-    public static OkHttpClient getOkHttpClient(){
+    private static OkHttpClient getOkHttpClient(){
         OkHttpClient.Builder okHttpClient = new OkHttpClient.Builder()
                 .connectTimeout(20*1000, TimeUnit.MILLISECONDS)
                 .readTimeout(20*1000,TimeUnit.MILLISECONDS)
