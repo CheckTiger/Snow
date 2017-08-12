@@ -32,13 +32,13 @@ import rx.schedulers.Schedulers;
 
 public class CategoryFragment extends BaseFragment {
     private static final String TAG = CategoryFragment.class.getSimpleName();
-//    @BindView(R.id.swipe_target)
-//    RecyclerView swipeTarget;
+    @BindView(R.id.swipe_target)
+    RecyclerView swipeTarget;
     @BindView(R.id.swipeToLoadLayout)
     SwipeToLoadLayout swipeToLoadLayout;
 
-    RecyclerView swipeTarget;
-    private JuHeBannerToutiaoEntity mBnnerEntity;
+//    private JuHeBannerToutiaoEntity mBnnerEntity;
+    private BannerEntity mBnnerEntity;
     private List<Item> items = new ArrayList<>();
     private MultiTypeAdapter adapter;
     private Activity activity;
@@ -58,36 +58,41 @@ public class CategoryFragment extends BaseFragment {
 
     @Override
     protected void initUI(View view) {
-        swipeTarget = view.findViewById(R.id.swipe_target);
-        ApiRetrofit.getInstance().getBannerByPost(key).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Subscriber<JuHeBannerToutiaoEntity>() {
-                    @Override
-                    public void onCompleted() {
-
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        Log.e(TAG,"请求数据失败------->>>>>>"+e.getMessage());
-                        Log.e(TAG,"请求数据失败----1--->>>>>>"+e.getLocalizedMessage());
-                    }
-
-                    @Override
-                    public void onNext(JuHeBannerToutiaoEntity bannerEntity) {
-                        mBnnerEntity = bannerEntity;
-                        Log.e(TAG,"请求数据成功------->>>>>>"+bannerEntity.getReason());
-                        Log.e(TAG,"请求数据成功------->>>>>>"+bannerEntity.getResult().getData().size());
-                        items.add(new Banner(getActivity(), mBnnerEntity));
-                        adapter = new MultiTypeAdapter(items);
-                        adapter.applyGlobalMultiTypePool();
-                        MultiTypeAsserts.assertAllRegistered(adapter,items);
-                        swipeTarget.setAdapter(adapter);
-                    }
-                });
     }
 
     @Override
     protected void initData() {
-
+//        ApiRetrofit.getInstance().getBannerByPost(key).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+//                .subscribe(mBannerSub);
+        ApiRetrofit.getInstance().getBannerByQuNaWan().subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                .subscribe(mBannerSub);
     }
+
+    /**
+     * 获取banner数据
+     */
+    private final Subscriber<BannerEntity> mBannerSub = new Subscriber<BannerEntity>() {
+        @Override
+        public void onCompleted() {
+
+        }
+
+        @Override
+        public void onError(Throwable e) {
+            Log.e(TAG,"请求数据成功------->>>>>>"+e.getMessage());
+            Log.e(TAG,"请求数据成功------->>>>>>"+e.getLocalizedMessage());
+        }
+
+        @Override
+        public void onNext(BannerEntity bannerEntity) {
+            mBnnerEntity = bannerEntity;
+            Log.e(TAG,"请求数据成功------->>>>>>"+bannerEntity.getReason());
+            Log.e(TAG,"请求数据成功------->>>>>>"+bannerEntity.getResult().size());
+            items.add(new Banner(getActivity(), mBnnerEntity));
+            adapter = new MultiTypeAdapter(items);
+            adapter.applyGlobalMultiTypePool();
+            MultiTypeAsserts.assertAllRegistered(adapter,items);
+            swipeTarget.setAdapter(adapter);
+        }
+    };
 }

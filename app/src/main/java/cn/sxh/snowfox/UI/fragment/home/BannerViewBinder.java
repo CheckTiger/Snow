@@ -2,7 +2,6 @@ package cn.sxh.snowfox.UI.fragment.home;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.RequestManager;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.Transformer;
 import com.youth.banner.listener.OnBannerListener;
@@ -21,13 +19,9 @@ import com.zhy.autolayout.utils.AutoUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-import cn.sxh.snowfox.AppContext;
 import cn.sxh.snowfox.R;
 import cn.sxh.snowfox.bean.BannerEntity;
-import cn.sxh.snowfox.bean.JuHeBannerToutiaoEntity;
-import cn.sxh.snowfox.utils.GlideImageLoader;
 import cn.sxh.snowfox.view.multitype.ItemViewProvider;
-import me.drakeet.multitype.ItemViewBinder;
 
 /**
  * Created by snow on 2017/8/10.
@@ -35,7 +29,7 @@ import me.drakeet.multitype.ItemViewBinder;
 public class BannerViewBinder extends ItemViewProvider<Banner, BannerViewBinder.ViewHolder> implements OnBannerListener{
 
     private GlideImageLoader mImageLoader;
-    private JuHeBannerToutiaoEntity bannerEntity;
+    private BannerEntity bannerEntity;
     private Context context;
     @NonNull
     @Override
@@ -50,12 +44,14 @@ public class BannerViewBinder extends ItemViewProvider<Banner, BannerViewBinder.
         holder.banner.setImageLoader(getImageLoader());
         bannerEntity = banner.mEntity;
         this.context = banner.mActivity;
-        if (bannerEntity.getResult().getData() == null || bannerEntity.getResult().getData().isEmpty()) {
+        if (bannerEntity.getResult() == null || bannerEntity.getResult().isEmpty()) {
             return;
         }
         List<String> IMAGE_URL =new ArrayList<>();
-        for (JuHeBannerToutiaoEntity.ResultBean.DataBean result : bannerEntity.getResult().getData()) {
-            IMAGE_URL.add(result.getThumbnail_pic_s02());
+        for (BannerEntity.ResultBean result : bannerEntity.getResult()) {
+            if (result.getAtype() == 1) {
+                IMAGE_URL.add(result.getImage());
+            }
         }
         if (IMAGE_URL.size() > 1) {
             holder.banner.isAutoPlay(true);//其实这个库默认是设置为轮播的
@@ -73,8 +69,8 @@ public class BannerViewBinder extends ItemViewProvider<Banner, BannerViewBinder.
     public void OnBannerClick(int position) {
         ArrayList<String> webUrl = new ArrayList<>();
         if (bannerEntity.getResult() != null) {
-            for (JuHeBannerToutiaoEntity.ResultBean.DataBean result : bannerEntity.getResult().getData()) {
-                webUrl.add(result.getUrl());
+            for (BannerEntity.ResultBean result : bannerEntity.getResult()) {
+                webUrl.add(result.getLink());
             }
             Toast.makeText(context, webUrl.get(position), Toast.LENGTH_SHORT).show();
         }

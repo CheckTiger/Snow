@@ -1,21 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fitsSystemWindows="true"
     tools:context="cn.sxh.snowfox.UI.activity.MainActivity">
-    <cn.sxh.snowfox.view.tabBottom.TabBottomView
-        android:id="@+id/tab_container"
+    <FrameLayout
+        android:id="@+id/home_content"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:tabTextColor="@color/bottom_icon_up"
-        app:selectedTextColor="@color/common_red"
-        app:tabTextSize="12sp"
-        app:drawablePadding="1dp"
-        app:iconHeight="22dp"
-        app:iconWidth="22dp"
-        app:divideLineColor="@color/common_line_two"
-        app:divideLineHeight="0.3dp"/>
-</LinearLayout>
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/white"/>
+
+    <include layout="@layout/main_bottom_radiobutton" />
+</com.zhy.autolayout.AutoLinearLayout>

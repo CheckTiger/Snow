@@ -14,8 +14,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ApiRetrofit {
 
     private static SnowFoxApi snowFoxApi;
-//    private static final String HOST = "http://www.51qunawan.cn/QunawanService/mobile/";
-    private static final String HOST = "http://v.juhe.cn/";
+    private static final String HOST = "http://www.51qunawan.cn/QunawanService/mobile/";
+//    private static final String HOST = "http://v.juhe.cn/";
 //    private static final String HOST = "http://v.juhe.cn/toutiao/index?&key=3988f8911b515e58d49ac192823d9960";
 
     public static SnowFoxApi getInstance() {

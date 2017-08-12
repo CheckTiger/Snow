@@ -24,7 +24,7 @@ public interface SnowFoxApi {
      * 1.获取轮播图资源-post方式请求
      * @return
      */
-    @GET("common/find_advertising")
+    @POST("common/find_advertising")
     Observable<BannerEntity> getBannerByQuNaWan();
 
     /**

@@ -1,9 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<com.zhy.autolayout.AutoLinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="50dp">
+    <RadioGroup
+        android:id="@+id/rg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:background="@color/white">
 
+        <RadioButton
+            android:id="@+id/rb_homepage"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:button="@null"
+            android:checked="true"
+            android:gravity="center"
+            android:text="娱乐天地"/>
 
-</LinearLayout>
+        <RadioButton
+            android:id="@+id/rb_category"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:button="@null"
+            android:gravity="center"
+            android:text="新闻小说"/>
+
+        <RadioButton
+            android:id="@+id/rb_discover"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:button="@null"
+            android:gravity="center"
+            android:text="惊喜"/>
+
+        <RadioButton
+            android:id="@+id/rb_shoppingcart"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:button="@null"
+            android:gravity="center"
+            android:text="社群"/>
+
+        <RadioButton
+            android:id="@+id/rb_mine"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:button="@null"
+            android:gravity="center"
+            android:text="技术总结"/>
+
+    </RadioGroup>
+
+</com.zhy.autolayout.AutoLinearLayout>
