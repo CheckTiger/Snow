@@ -22,7 +22,7 @@
             android:background="#ffffff"
             android:fitsSystemWindows="true"
             app:headerLayout="@layout/nav_header_news"
-            app:itemTextColor="@color/colorPrimary"
+            app:itemTextColor="@color/primary_text"
             app:menu="@menu/activity_main_drawer"/>
 
 </android.support.v4.widget.DrawerLayout>

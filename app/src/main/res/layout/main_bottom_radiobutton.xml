@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="50dp">
+    android:layout_height="60dp">
     <RadioGroup
         android:id="@+id/rg"
         android:layout_width="match_parent"
@@ -21,7 +21,9 @@
             android:button="@null"
             android:checked="true"
             android:gravity="center"
-            android:text="娱乐天地"/>
+            android:drawableTop="@drawable/music_selected_icon"
+            android:textColor="@color/colorPrimary"
+            android:text="@string/music"/>
 
         <RadioButton
             android:id="@+id/rb_category"
@@ -32,7 +34,9 @@
             android:layout_marginBottom="5dp"
             android:button="@null"
             android:gravity="center"
-            android:text="新闻小说"/>
+            android:drawableTop="@drawable/news_selected_icon"
+            android:textColor="@color/colorPrimary"
+            android:text="@string/news"/>
 
         <RadioButton
             android:id="@+id/rb_discover"
@@ -43,7 +47,9 @@
             android:layout_marginBottom="5dp"
             android:button="@null"
             android:gravity="center"
-            android:text="惊喜"/>
+            android:drawableTop="@drawable/surprise_selected_icon"
+            android:textColor="@color/colorPrimary"
+            android:text="@string/surprise"/>
 
         <RadioButton
             android:id="@+id/rb_shoppingcart"
@@ -54,7 +60,9 @@
             android:layout_marginBottom="5dp"
             android:button="@null"
             android:gravity="center"
-            android:text="社群"/>
+            android:drawableTop="@drawable/club_selected_icon"
+            android:textColor="@color/colorPrimary"
+            android:text="@string/club"/>
 
         <RadioButton
             android:id="@+id/rb_mine"
@@ -65,7 +73,9 @@
             android:layout_marginBottom="5dp"
             android:button="@null"
             android:gravity="center"
-            android:text="技术总结"/>
+            android:drawableTop="@drawable/technology_selected_icon"
+            android:textColor="@color/colorPrimary"
+            android:text="@string/technology"/>
 
     </RadioGroup>
 
