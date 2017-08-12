@@ -1,5 +1,6 @@
 package cn.sxh.snowfox.bean;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -8,7 +9,7 @@ import java.util.List;
  * @mail snowtigersong@gmail.com
  */
 
-public class JuHeBannerToutiaoEntity {
+public class JuHeBannerToutiaoEntity implements Serializable{
 
 
     /**

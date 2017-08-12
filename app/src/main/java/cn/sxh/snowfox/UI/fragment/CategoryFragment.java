@@ -13,6 +13,7 @@ import java.util.List;
 import butterknife.BindView;
 import cn.sxh.snowfox.API.ApiRetrofit;
 import cn.sxh.snowfox.API.HttpResult;
+import cn.sxh.snowfox.AppConfig;
 import cn.sxh.snowfox.R;
 import cn.sxh.snowfox.UI.fragment.home.Banner;
 import cn.sxh.snowfox.base.BaseFragment;
@@ -74,6 +75,7 @@ public class CategoryFragment extends BaseFragment {
                     @Override
                     public void onNext(JuHeBannerToutiaoEntity bannerEntity) {
                         mBnnerEntity = bannerEntity;
+                        AppConfig.saveStringSpValue(getContext(),"BANNER","SONG",bannerEntity.getReason());
                         Log.e(TAG,"请求数据成功------->>>>>>"+bannerEntity.getReason());
                         Log.e(TAG,"请求数据成功------->>>>>>"+bannerEntity.getResult().getData().size());
                         items.add(new Banner(getActivity(), mBnnerEntity));

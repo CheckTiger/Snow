@@ -9,12 +9,16 @@ import android.app.Application;
 public class AppContext extends Application {
 
     private static AppContext instance;
+    protected AppConfig config;
     @Override
     public void onCreate() {
         super.onCreate();
         instance = (AppContext) getApplicationContext();
         MultiTypeInstaller.start();
+        config = AppConfig.getConfig(getInstance());
     }
 
     public static AppContext getInstance(){return instance;}
+
+
 }

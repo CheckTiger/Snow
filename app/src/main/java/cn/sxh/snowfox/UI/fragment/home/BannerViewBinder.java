@@ -2,7 +2,6 @@ package cn.sxh.snowfox.UI.fragment.home;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.RequestManager;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.Transformer;
 import com.youth.banner.listener.OnBannerListener;
@@ -21,13 +19,9 @@ import com.zhy.autolayout.utils.AutoUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-import cn.sxh.snowfox.AppContext;
 import cn.sxh.snowfox.R;
-import cn.sxh.snowfox.bean.BannerEntity;
 import cn.sxh.snowfox.bean.JuHeBannerToutiaoEntity;
-import cn.sxh.snowfox.utils.GlideImageLoader;
 import cn.sxh.snowfox.view.multitype.ItemViewProvider;
-import me.drakeet.multitype.ItemViewBinder;
 
 /**
  * Created by snow on 2017/8/10.
