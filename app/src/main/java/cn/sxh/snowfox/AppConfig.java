@@ -33,7 +33,6 @@ public class AppConfig {
     public static void saveStringSpValue(Context context,String spName, String key, String value) {
         if (context == null) {
             return;
-
         }
         SharedPreferences.Editor editor = context.getSharedPreferences(spName,Context.MODE_PRIVATE).edit();
         editor.putString(key,value);
