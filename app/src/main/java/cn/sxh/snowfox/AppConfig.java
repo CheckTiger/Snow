@@ -37,6 +37,7 @@ public class AppConfig {
         SharedPreferences.Editor editor = context.getSharedPreferences(spName,Context.MODE_PRIVATE).edit();
         editor.putString(key,value);
         editor.apply();
+
     }
 
     /**
