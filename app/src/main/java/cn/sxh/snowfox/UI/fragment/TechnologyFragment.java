@@ -2,8 +2,10 @@ package cn.sxh.snowfox.UI.fragment;
 
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import cn.sxh.snowfox.API.ApiRetrofit;
+import cn.sxh.snowfox.AppConfig;
 import cn.sxh.snowfox.R;
 import cn.sxh.snowfox.base.BaseFragment;
 import cn.sxh.snowfox.bean.BannerEntity;
@@ -48,6 +50,8 @@ public class TechnologyFragment extends BaseFragment {
 
     @Override
     protected void initData() {
+        String s = AppConfig.getStringSpValue(getContext(), "BANNER", "SONG");
+        Toast.makeText(getContext(),s, Toast.LENGTH_SHORT).show();
 
     }
 }
