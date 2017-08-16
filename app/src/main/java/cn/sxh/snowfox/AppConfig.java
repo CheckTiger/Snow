@@ -37,7 +37,7 @@ public class AppConfig {
         }
         SharedPreferences.Editor editor = context.getSharedPreferences(spName,Context.MODE_PRIVATE).edit();
         editor.putString(key,value);
-        editor.apply();
+        editor.commit();
 
     }
 
@@ -72,7 +72,7 @@ public class AppConfig {
         }
         SharedPreferences.Editor editor = context.getSharedPreferences(spName,Context.MODE_PRIVATE).edit();
         editor.putString(key,value);
-        editor.apply();
+        editor.commit();
     }
 
 
@@ -92,7 +92,7 @@ public class AppConfig {
         }
         SharedPreferences.Editor editor = context.getSharedPreferences(spName,Context.MODE_PRIVATE).edit();
         editor.putInt(key,value);
-        editor.apply();
+        editor.commit();
     }
 
     /**
@@ -126,7 +126,7 @@ public class AppConfig {
         }
         SharedPreferences.Editor editor = context.getSharedPreferences(spName,Context.MODE_PRIVATE).edit();
         editor.putInt(key,value);
-        editor.apply();
+        editor.commit();
     }
 
     /**
@@ -145,7 +145,7 @@ public class AppConfig {
         }
         SharedPreferences.Editor editor = context.getSharedPreferences(spName,Context.MODE_PRIVATE).edit();
         editor.putLong(key,value);
-        editor.apply();
+        editor.commit();
     }
 
     /**
@@ -179,7 +179,7 @@ public class AppConfig {
         }
         SharedPreferences.Editor editor = context.getSharedPreferences(spName,Context.MODE_PRIVATE).edit();
         editor.putLong(key,value);
-        editor.apply();
+        editor.commit();
     }
 
 

@@ -2,6 +2,8 @@ package cn.sxh.snowfox.UI.fragment;
 
 import android.view.View;
 
+import cn.sxh.snowfox.AppConfig;
+import cn.sxh.snowfox.AppContext;
 import cn.sxh.snowfox.R;
 import cn.sxh.snowfox.base.BaseFragment;
 
@@ -17,7 +19,7 @@ public class MusicFragment extends BaseFragment {
 
     @Override
     protected void initUI(View view) {
-
+        AppConfig.saveStringSpValue(AppContext.getInstance(),"BANNER","SONG","你好啊");
     }
 
     @Override

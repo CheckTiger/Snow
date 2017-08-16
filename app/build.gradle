@@ -69,5 +69,8 @@ dependencies {
     compile 'me.drakeet.multitype:multitype:3.2.0'//复杂列表的实现
     compile 'com.youth.banner:banner:1.4.9'  //轮播图的实现
     compile 'com.github.bumptech.glide:glide:3.7.0'  //加载图片的框架
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.4-beta2'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'
+    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'
 
 }

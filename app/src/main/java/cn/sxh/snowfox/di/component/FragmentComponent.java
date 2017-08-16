@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 
 import cn.sxh.snowfox.UI.fragment.CategoryFragment;
+import cn.sxh.snowfox.UI.fragment.TechnologyFragment;
 import cn.sxh.snowfox.di.module.FragmentModule;
 import cn.sxh.snowfox.di.scope.ContextLife;
 import cn.sxh.snowfox.di.scope.PerFragment;
@@ -25,5 +26,5 @@ public interface FragmentComponent {
 
     Activity getActivity();
 
-    void inject(CategoryFragment categoryFragment);
+    void inject(TechnologyFragment categoryFragment);
 }

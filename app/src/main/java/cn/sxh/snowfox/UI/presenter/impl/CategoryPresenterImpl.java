@@ -1,5 +1,7 @@
 package cn.sxh.snowfox.UI.presenter.impl;
 
+import android.util.Log;
+
 import javax.inject.Inject;
 
 import cn.sxh.snowfox.UI.interactor.CategoryFragmentInteractor;
@@ -18,6 +20,7 @@ import cn.sxh.snowfox.view.CategoryView;
 public class CategoryPresenterImpl extends BasePresenterImpl<CategoryView,BannerEntity>
         implements CategoryPresenter{
 
+    private static final String TAG = CategoryPresenterImpl.class.getSimpleName();
     private CategoryFragmentInteractor<BannerEntity> mCategoryInteractor;
 
     @Inject
@@ -41,6 +44,6 @@ public class CategoryPresenterImpl extends BasePresenterImpl<CategoryView,Banner
 
     @Override
     public void onBannerChanged() {
-
+        Log.e(TAG, "dagger模式实验成功");
     }
 }

@@ -1,57 +1,76 @@
 package cn.sxh.snowfox.UI.fragment;
 
+import android.app.Activity;
 import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
-import cn.sxh.snowfox.API.ApiRetrofit;
-import cn.sxh.snowfox.AppConfig;
+import javax.inject.Inject;
+
 import cn.sxh.snowfox.R;
-import cn.sxh.snowfox.base.BaseFragment;
+import cn.sxh.snowfox.UI.presenter.impl.CategoryPresenterImpl;
+import cn.sxh.snowfox.base.NewBaseFragment;
 import cn.sxh.snowfox.bean.BannerEntity;
-import rx.Subscriber;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
+import cn.sxh.snowfox.event.BannerChangeEvent;
+import cn.sxh.snowfox.utils.RxBus;
+import cn.sxh.snowfox.view.CategoryView;
+import rx.functions.Action1;
 
 /**
  * Created by snow on 2017/8/5.
  */
 
-public class TechnologyFragment extends BaseFragment {
+public class TechnologyFragment extends NewBaseFragment implements CategoryView{
     private static final String TAG = TechnologyFragment.class.getSimpleName();
 
+    @Inject
+    CategoryPresenterImpl mCategoryPresenter;
+    @Inject
+    Activity mActivity;
     @Override
-    protected int getContentView() {
-        return R.layout.activity_news;
+    public void initInjector() {
+        mFragmentComponent.inject(this);
     }
 
     @Override
-    protected void initUI(View view) {
-        ApiRetrofit.getInstance().getBannerByQuNaWan()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Subscriber<BannerEntity>() {
+    public void initViews(View view) {
+        initPresenter();
+    }
+
+    private void initPresenter() {
+        mPresenter = mCategoryPresenter;
+        mPresenter.attachView(this);
+        mPresenter.onCreate();
+        mSubscription = RxBus.getInstance().toObservable(BannerChangeEvent.class)
+                .subscribe(new Action1<BannerChangeEvent>() {
                     @Override
-                    public void onCompleted() {
-
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-
-                    }
-
-                    @Override
-                    public void onNext(BannerEntity bannerEntity) {
-                        Log.e(TAG,"请求数据成功------->>>>>>"+bannerEntity.getReason());
+                    public void call(BannerChangeEvent bannerChangeEvent) {
+                        mCategoryPresenter.onBannerChanged();
                     }
                 });
     }
 
     @Override
-    protected void initData() {
-        String s = AppConfig.getStringSpValue(getContext(), "BANNER", "SONG");
-        Toast.makeText(getContext(),s, Toast.LENGTH_SHORT).show();
+    public int getLayoutId() {
+        return R.layout.activity_news;
+    }
 
+    @Override
+    public void showProgress() {
+
+    }
+
+    @Override
+    public void hideProgress() {
+
+    }
+
+    @Override
+    public void showMsg(String message) {
+
+    }
+
+    @Override
+    public void initBanner(BannerEntity bannerEntity) {
+        Log.e(TAG, "dagger模式实验成功------" + bannerEntity.getReason());
     }
 }
