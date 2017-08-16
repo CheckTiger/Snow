@@ -17,9 +17,9 @@
     <item android:title="设置">
         <menu>
             <item
-                 android:id="@+id/nav_night_mode"
+                android:id="@+id/nav_night_mode"
                 android:title="夜间模式"
-                android:actionLayout="@layout/drawer_switch"
+                app:actionLayout="@layout/drawer_switch"
                 app:showAsAction="always"/>
         </menu>
     </item>

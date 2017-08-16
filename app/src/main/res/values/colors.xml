@@ -8,4 +8,6 @@
     <color name="bottom_icon_up">#b5b5b5</color>
     <color name="common_line_two">#dcdcdc</color>
     <color name="white">#ffffffff</color>
+    <color name="xml_color_text_normal_style">#72AC37</color>
+    <color name="primary_text">#de000000</color>
 </resources>

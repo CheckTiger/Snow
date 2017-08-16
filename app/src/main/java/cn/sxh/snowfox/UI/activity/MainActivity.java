@@ -1,54 +1,153 @@
 package cn.sxh.snowfox.UI.activity;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.support.annotation.IdRes;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.Toast;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import cn.sxh.snowfox.R;
 import cn.sxh.snowfox.UI.fragment.CategoryFragment;
 import cn.sxh.snowfox.UI.fragment.MusicFragment;
 import cn.sxh.snowfox.UI.fragment.ShopFragment;
 import cn.sxh.snowfox.UI.fragment.SurpriseFragment;
 import cn.sxh.snowfox.UI.fragment.TechnologyFragment;
-import cn.sxh.snowfox.adapter.FragmentViewPageAdapter;
-import cn.sxh.snowfox.view.tabBottom.Tab;
-import cn.sxh.snowfox.view.tabBottom.TabBottomView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener {
 
-    private TabBottomView tabBottomView;
-    private FragmentViewPageAdapter pageAdapter;
-    private Fragment[] fragments = new Fragment[5];
+
+    @BindView(R.id.rg)
+    RadioGroup rg;
+    /**
+     * 碎片内容区和碎片事务管理器
+     */
+    private MusicFragment musicFragment;
+    private CategoryFragment categoryFragment;
+    private SurpriseFragment surpriseFragment;
+    private ShopFragment shopFragment;
+    private TechnologyFragment technologyFragment;
+    private FragmentTransaction mTransaction;
+
+    private int currentIndex = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
         initView();
     }
 
     private void initView() {
-        tabBottomView = (TabBottomView) findViewById(R.id.tab_container);
-        initFragmentArray();
+        setTabSelectFragment(0);
+        rg.setOnCheckedChangeListener(this);
     }
 
-    private void initFragmentArray() {
-        fragments[0] = new MusicFragment();
-        fragments[1] = new CategoryFragment();
-        fragments[2] = new SurpriseFragment();
-        fragments[3] = new ShopFragment();
-        fragments[4] = new TechnologyFragment();
-        initFragmentAdapter();
+    private void setTabSelectFragment(int index) {
+        mTransaction = getSupportFragmentManager().beginTransaction();
+        hideTabFragments(mTransaction);
+        switch (index) {
+            case 0:
+                if (musicFragment == null) {
+                    musicFragment = new MusicFragment();
+                    mTransaction.add(R.id.home_content, musicFragment);
+                } else {
+                    mTransaction.show(musicFragment);
+                }
+                break;
+            case 1:
+                if (categoryFragment == null) {
+                    categoryFragment = new CategoryFragment();
+                    mTransaction.add(R.id.home_content, categoryFragment);
+                } else {
+                    mTransaction.show(categoryFragment);
+                }
+                break;
+            case 2:
+                if (surpriseFragment == null) {
+                    surpriseFragment = new SurpriseFragment();
+                    mTransaction.add(R.id.home_content, surpriseFragment);
+                } else {
+                    mTransaction.show(surpriseFragment);
+                }
+                break;
+            case 3:
+                if (shopFragment == null) {
+                    shopFragment = new ShopFragment();
+                    mTransaction.add(R.id.home_content, shopFragment);
+                } else {
+                    mTransaction.show(shopFragment);
+                }
+                break;
+            case 4:
+                if (technologyFragment == null) {
+                    technologyFragment = new TechnologyFragment();
+                    mTransaction.add(R.id.home_content, technologyFragment);
+                } else {
+                    mTransaction.show(technologyFragment);
+                }
+                break;
+            default:
+                break;
+        }
+        mTransaction.commit();
     }
 
-    private void initFragmentAdapter() {
-        pageAdapter = new FragmentViewPageAdapter(fragments,getSupportFragmentManager());
-        tabBottomView.setAdapter(pageAdapter);
-        tabBottomView.setOnTabSelectedListener(new Tab.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(Tab tab) {
-                Toast.makeText(MainActivity.this, tab.getText(), Toast.LENGTH_SHORT).show();
-            }
-        });
+    /**
+     * 隐藏碎片
+     */
+    private void hideTabFragments(FragmentTransaction transaction) {
+
+        if (musicFragment != null) {
+            transaction.hide(musicFragment);
+        }
+        if (categoryFragment != null) {
+            transaction.hide(categoryFragment);
+        }
+        if (surpriseFragment != null) {
+            transaction.hide(surpriseFragment);
+        }
+        if (shopFragment != null) {
+            transaction.hide(shopFragment);
+        }
+        if (technologyFragment != null) {
+            transaction.hide(technologyFragment);
+        }
+
+    }
+
+    @Override
+    public void onCheckedChanged(RadioGroup radioGroup, @IdRes int i) {
+        switch (i) {
+            case R.id.rb_homepage:
+                currentIndex = 0;
+                setTabSelectFragment(0);
+                break;
+            case R.id.rb_category:
+                currentIndex = 1;
+                setTabSelectFragment(1);
+                break;
+            case R.id.rb_discover:
+                currentIndex = 2;
+                setTabSelectFragment(2);
+                break;
+            case R.id.rb_shoppingcart:
+                currentIndex = 3;
+                changedSelectedMenuUI();
+                setTabSelectFragment(3);
+                break;
+            case R.id.rb_mine:
+                currentIndex = 4;
+                setTabSelectFragment(4);
+                break;
+        }
+    }
+
+    private void changedSelectedMenuUI() {
+        RadioButton radioButton = (RadioButton) rg.getChildAt(currentIndex);
+        radioButton.setChecked(true);
     }
 }

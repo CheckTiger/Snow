@@ -1,9 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<com.zhy.autolayout.AutoLinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="60dp">
+    <RadioGroup
+        android:id="@+id/rg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:background="@color/white">
 
+        <RadioButton
+            android:id="@+id/rb_homepage"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:button="@null"
+            android:checked="true"
+            android:gravity="center"
+            android:drawableTop="@drawable/music_selected_icon"
+            android:textColor="@color/colorPrimary"
+            android:text="@string/music"/>
 
-</LinearLayout>
+        <RadioButton
+            android:id="@+id/rb_category"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:button="@null"
+            android:gravity="center"
+            android:drawableTop="@drawable/news_selected_icon"
+            android:textColor="@color/colorPrimary"
+            android:text="@string/news"/>
+
+        <RadioButton
+            android:id="@+id/rb_discover"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:button="@null"
+            android:gravity="center"
+            android:drawableTop="@drawable/surprise_selected_icon"
+            android:textColor="@color/colorPrimary"
+            android:text="@string/surprise"/>
+
+        <RadioButton
+            android:id="@+id/rb_shoppingcart"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:button="@null"
+            android:gravity="center"
+            android:drawableTop="@drawable/club_selected_icon"
+            android:textColor="@color/colorPrimary"
+            android:text="@string/club"/>
+
+        <RadioButton
+            android:id="@+id/rb_mine"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:button="@null"
+            android:gravity="center"
+            android:drawableTop="@drawable/technology_selected_icon"
+            android:textColor="@color/colorPrimary"
+            android:text="@string/technology"/>
+
+    </RadioGroup>
+
+</com.zhy.autolayout.AutoLinearLayout>

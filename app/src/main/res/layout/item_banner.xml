@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.youth.banner.Banner
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<com.youth.banner.Banner xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/banner"
     android:layout_width="match_parent"
     android:layout_height="150dp"
-    android:background="@mipmap/twitter_pull_arrow"/>
+    app:indicator_drawable_selected="@drawable/banner_selected_point_black"
+    app:indicator_drawable_unselected="@drawable/banner_selector_point_unblack"
+    android:background="@mipmap/twitter_pull_arrow" />

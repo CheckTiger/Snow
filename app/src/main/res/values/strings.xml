@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">SnowFox</string>
+    <string name="music">音乐</string>
+    <string name="news">新闻</string>
+    <string name="surprise">惊喜</string>
+    <string name="club">社群</string>
+    <string name="technology">技术</string>
 </resources>

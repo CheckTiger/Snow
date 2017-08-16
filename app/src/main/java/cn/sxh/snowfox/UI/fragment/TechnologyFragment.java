@@ -52,5 +52,6 @@ public class TechnologyFragment extends BaseFragment {
     protected void initData() {
         String s = AppConfig.getStringSpValue(getContext(), "BANNER", "SONG");
         Toast.makeText(getContext(),s, Toast.LENGTH_SHORT).show();
+
     }
 }
