@@ -73,7 +73,7 @@ public class AppContext extends Application {
                 .applicationModule(new ApplicationModule(this))
                 .build();
     }
-    public ApplicationComponent getmApplicationComponent(){
+    public ApplicationComponent getApplicationComponent(){
         return mApplicationComponent;
     }
 }

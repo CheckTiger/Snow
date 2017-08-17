@@ -44,7 +44,7 @@ public abstract class NewBaseFragment<T extends BasePresenter> extends Fragment 
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mFragmentComponent = DaggerFragmentComponent.builder()
-                .applicationComponent(((AppContext) getActivity().getApplication()).getmApplicationComponent())
+                .applicationComponent(((AppContext) getActivity().getApplication()).getApplicationComponent())
                 .fragmentModule(new FragmentModule(this))
                 .build();
         initInjector();
