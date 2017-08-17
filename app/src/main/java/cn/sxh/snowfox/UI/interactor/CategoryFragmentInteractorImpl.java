@@ -1,5 +1,7 @@
 package cn.sxh.snowfox.UI.interactor;
 
+import android.util.Log;
+
 import javax.inject.Inject;
 
 import cn.sxh.snowfox.API.ApiRetrofit;
@@ -16,6 +18,8 @@ import rx.Subscription;
  */
 
 public class CategoryFragmentInteractorImpl implements CategoryFragmentInteractor<BannerEntity> {
+    private static final String TAG = CategoryFragmentInteractorImpl.class.getSimpleName();
+
     @Inject
     public CategoryFragmentInteractorImpl(){}
     @Override
@@ -24,6 +28,7 @@ public class CategoryFragmentInteractorImpl implements CategoryFragmentInteracto
 
             @Override
             public void call(Subscriber<? super BannerEntity> subscriber) {
+                Log.e(TAG, "call: ----------->>>>>>"+"开始请求数据" );
                 subscriber.onNext(ApiRetrofit.getInstance().getBannerBNaWan());
                 subscriber.onCompleted();
             }
@@ -35,11 +40,13 @@ public class CategoryFragmentInteractorImpl implements CategoryFragmentInteracto
 
             @Override
             public void onError(Throwable e) {
+                Log.e(TAG, "call: ----------->>>>>>"+e.getMessage() );
                 callBack.onError("网络繁忙");
             }
 
             @Override
             public void onNext(BannerEntity bannerEntity) {
+                Log.e(TAG, "call: ----------->>>>>>"+bannerEntity.getReason() );
                 callBack.success(bannerEntity);
             }
         });

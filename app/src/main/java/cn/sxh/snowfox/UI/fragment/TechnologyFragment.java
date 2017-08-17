@@ -44,6 +44,7 @@ public class TechnologyFragment extends NewBaseFragment implements CategoryView{
                 .subscribe(new Action1<BannerChangeEvent>() {
                     @Override
                     public void call(BannerChangeEvent bannerChangeEvent) {
+                        Log.e(TAG, "initPresenter------" + "初始化开始");
                         mCategoryPresenter.onBannerChanged();
                     }
                 });
@@ -66,7 +67,7 @@ public class TechnologyFragment extends NewBaseFragment implements CategoryView{
 
     @Override
     public void showMsg(String message) {
-
+        Log.e(TAG, "dagger模式实验成功------" + message);
     }
 
     @Override

@@ -3,6 +3,7 @@ package cn.sxh.snowfox.base;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +26,7 @@ import rx.Subscription;
 
 public abstract class NewBaseFragment<T extends BasePresenter> extends Fragment {
 
+    private static final String TAG = NewBaseFragment.class.getSimpleName();
     protected FragmentComponent mFragmentComponent;
     public FragmentComponent getFragmentComponent(){return mFragmentComponent;}
 
@@ -43,6 +45,7 @@ public abstract class NewBaseFragment<T extends BasePresenter> extends Fragment 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.e(TAG, "onCreate: --------->>>>>"+"开始执行");
         mFragmentComponent = DaggerFragmentComponent.builder()
                 .applicationComponent(((AppContext) getActivity().getApplication()).getApplicationComponent())
                 .fragmentModule(new FragmentModule(this))
@@ -53,6 +56,7 @@ public abstract class NewBaseFragment<T extends BasePresenter> extends Fragment 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        Log.e(TAG, "onCreateView: -------------->>>>>>>" +"开始执行");
         if (mFragmentView == null) {
             mFragmentView = inflater.inflate(getLayoutId(), container, false);
             ButterKnife.bind(this, mFragmentView);

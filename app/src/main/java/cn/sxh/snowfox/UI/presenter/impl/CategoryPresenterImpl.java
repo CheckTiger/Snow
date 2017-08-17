@@ -33,6 +33,7 @@ public class CategoryPresenterImpl extends BasePresenterImpl<CategoryView,Banner
     }
 
     private void loadBanner() {
+        Log.e(TAG, "loadBanner实验成功------" + "开始加载数据");
         mSubscription = mCategoryInteractor.loadBannerInfo(this);
     }
 
@@ -45,5 +46,11 @@ public class CategoryPresenterImpl extends BasePresenterImpl<CategoryView,Banner
     @Override
     public void onBannerChanged() {
         Log.e(TAG, "dagger模式实验成功");
+    }
+
+    @Override
+    public void onError(String errorMsg) {
+        super.onError(errorMsg);
+        Log.e(TAG, "dagger模式实验失败-------->>>>>>"+errorMsg);
     }
 }
