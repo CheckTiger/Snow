@@ -1,4 +1,4 @@
-package cn.sxh.snowfox.view;
+package cn.sxh.snowfox.view.fragmentView;
 
 import cn.sxh.snowfox.bean.BannerEntity;
 import cn.sxh.snowfox.view.base.BaseView;

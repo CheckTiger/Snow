@@ -9,7 +9,7 @@ import cn.sxh.snowfox.UI.interactor.CategoryFragmentInteractorImpl;
 import cn.sxh.snowfox.UI.presenter.CategoryPresenter;
 import cn.sxh.snowfox.UI.presenter.base.BasePresenterImpl;
 import cn.sxh.snowfox.bean.BannerEntity;
-import cn.sxh.snowfox.view.CategoryView;
+import cn.sxh.snowfox.view.fragmentView.CategoryView;
 
 /**
  * @author by snow on 2017/8/14

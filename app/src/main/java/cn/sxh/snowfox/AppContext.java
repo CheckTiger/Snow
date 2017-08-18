@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import android.os.StrictMode;
 
+import com.socks.library.KLog;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
 
@@ -32,6 +33,7 @@ public class AppContext extends Application {
         instance = (AppContext) getApplicationContext();
         initLeakCanary();
         initStrictMode();
+        KLog.init(BuildConfig.DEBUG);
         MultiTypeInstaller.start();
         config = AppConfig.getConfig(getInstance());
         initApplicationComponent();

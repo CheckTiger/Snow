@@ -12,7 +12,7 @@ import cn.sxh.snowfox.base.NewBaseFragment;
 import cn.sxh.snowfox.bean.BannerEntity;
 import cn.sxh.snowfox.event.BannerChangeEvent;
 import cn.sxh.snowfox.utils.RxBus;
-import cn.sxh.snowfox.view.CategoryView;
+import cn.sxh.snowfox.view.fragmentView.CategoryView;
 import rx.functions.Action1;
 
 /**
