@@ -34,7 +34,7 @@ public interface SnowFoxApi {
      * @return
      */
     @POST("common/find_advertising")
-    BannerEntity getBannerBNaWan();
+    Observable<BannerEntity> getBannerBNaWan();
     /**
      * 1.获取轮播图资源--post请求方式
      * @return

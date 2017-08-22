@@ -73,5 +73,8 @@ public class TechnologyFragment extends NewBaseFragment implements CategoryView{
     @Override
     public void initBanner(BannerEntity bannerEntity) {
         Log.e(TAG, "dagger模式实验成功------" + bannerEntity.getReason());
+        Log.e(TAG, "dagger模式实验成功------" + bannerEntity.getCode());
+        Log.e(TAG, "dagger模式实验成功------" + bannerEntity.getResult().size());
+        Log.e(TAG, "dagger模式实验成功------" + bannerEntity.getTime());
     }
 }
