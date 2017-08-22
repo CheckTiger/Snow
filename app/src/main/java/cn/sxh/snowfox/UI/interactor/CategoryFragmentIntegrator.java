@@ -9,6 +9,6 @@ import rx.Subscription;
  * @mail snowtigersong@gmail.com
  */
 
-public interface CategoryFragmentInteractor<T> {
+public interface CategoryFragmentIntegrator<T> {
     Subscription loadBannerInfo(RequestCallBack<T> callBack);
 }

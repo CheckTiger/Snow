@@ -1,16 +1,13 @@
-package cn.sxh.snowfox.UI.interactor;
+package cn.sxh.snowfox.UI.interactor.impl;
 
 import android.util.Log;
 
 import javax.inject.Inject;
 
 import cn.sxh.snowfox.API.ApiRetrofit;
-import cn.sxh.snowfox.UI.fragment.home.Banner;
+import cn.sxh.snowfox.UI.interactor.CategoryFragmentIntegrator;
 import cn.sxh.snowfox.bean.BannerEntity;
 import cn.sxh.snowfox.callback.RequestCallBack;
-import cn.sxh.snowfox.view.multitype.MultiTypeAdapter;
-import cn.sxh.snowfox.view.multitype.MultiTypeAsserts;
-import rx.Observable;
 import rx.Subscriber;
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
@@ -22,11 +19,11 @@ import rx.schedulers.Schedulers;
  * @mail snowtigersong@gmail.com
  */
 
-public class CategoryFragmentInteractorImpl implements CategoryFragmentInteractor<BannerEntity> {
-    private static final String TAG = CategoryFragmentInteractorImpl.class.getSimpleName();
+public class CategoryFragmentIntegratorImpl implements CategoryFragmentIntegrator<BannerEntity> {
+    private static final String TAG = CategoryFragmentIntegratorImpl.class.getSimpleName();
 
     @Inject
-    public CategoryFragmentInteractorImpl(){}
+    public CategoryFragmentIntegratorImpl(){}
     @Override
     public Subscription loadBannerInfo(RequestCallBack<BannerEntity> callBack) {
 

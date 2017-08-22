@@ -4,8 +4,8 @@ import android.util.Log;
 
 import javax.inject.Inject;
 
-import cn.sxh.snowfox.UI.interactor.CategoryFragmentInteractor;
-import cn.sxh.snowfox.UI.interactor.CategoryFragmentInteractorImpl;
+import cn.sxh.snowfox.UI.interactor.CategoryFragmentIntegrator;
+import cn.sxh.snowfox.UI.interactor.impl.CategoryFragmentIntegratorImpl;
 import cn.sxh.snowfox.UI.presenter.CategoryPresenter;
 import cn.sxh.snowfox.UI.presenter.base.BasePresenterImpl;
 import cn.sxh.snowfox.bean.BannerEntity;
@@ -21,10 +21,10 @@ public class CategoryPresenterImpl extends BasePresenterImpl<CategoryView,Banner
         implements CategoryPresenter{
 
     private static final String TAG = CategoryPresenterImpl.class.getSimpleName();
-    private CategoryFragmentInteractor<BannerEntity> mCategoryInteractor;
+    private CategoryFragmentIntegrator<BannerEntity> mCategoryInteractor;
 
     @Inject
-    public CategoryPresenterImpl (CategoryFragmentInteractorImpl fragmentInteractor){mCategoryInteractor = fragmentInteractor;}
+    public CategoryPresenterImpl (CategoryFragmentIntegratorImpl fragmentInteractor){mCategoryInteractor = fragmentInteractor;}
 
     @Override
     public void onCreate() {
