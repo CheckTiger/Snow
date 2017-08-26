@@ -58,6 +58,7 @@ public class CategoryFragment extends BaseFragment {
 
     @Override
     protected void initUI(View view) {
+        swipeTarget = view.findViewById(R.id.swipe_target);
     }
 
     @Override
@@ -66,6 +67,14 @@ public class CategoryFragment extends BaseFragment {
 //                .subscribe(mBannerSub);
         ApiRetrofit.getInstance().getBannerByQuNaWan().subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
                 .subscribe(mBannerSub);
+    }
+
+    private void addDataToMultiType() {
+        items.add(new Banner(getActivity(), mBnnerEntity));
+        adapter = new MultiTypeAdapter(items);
+        adapter.applyGlobalMultiTypePool();
+        MultiTypeAsserts.assertAllRegistered(adapter,items);
+        swipeTarget.setAdapter(adapter);
     }
 
     /**
@@ -79,8 +88,8 @@ public class CategoryFragment extends BaseFragment {
 
         @Override
         public void onError(Throwable e) {
-            Log.e(TAG,"请求数据成功------->>>>>>"+e.getMessage());
-            Log.e(TAG,"请求数据成功------->>>>>>"+e.getLocalizedMessage());
+            Log.e(TAG,"请求数据失败------->>>>>>"+e.getMessage());
+            Log.e(TAG,"请求数据失败------->>>>>>"+e.getLocalizedMessage());
         }
 
         @Override
@@ -88,11 +97,7 @@ public class CategoryFragment extends BaseFragment {
             mBnnerEntity = bannerEntity;
             Log.e(TAG,"请求数据成功------->>>>>>"+bannerEntity.getReason());
             Log.e(TAG,"请求数据成功------->>>>>>"+bannerEntity.getResult().size());
-            items.add(new Banner(getActivity(), mBnnerEntity));
-            adapter = new MultiTypeAdapter(items);
-            adapter.applyGlobalMultiTypePool();
-            MultiTypeAsserts.assertAllRegistered(adapter,items);
-            swipeTarget.setAdapter(adapter);
+            addDataToMultiType();
         }
     };
 }

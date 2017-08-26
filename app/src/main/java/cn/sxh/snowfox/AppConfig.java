@@ -3,12 +3,15 @@ package cn.sxh.snowfox;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import rx.Subscription;
+
 /**
  * Created by Administrator on 2017/8/11 0011.
  */
 
 public class AppConfig {
 
+    public static final String APP_NIGHT_OR_LIGHT_MODE = "app_night_or_light_mode";//日夜间切换模式
     public static AppConfig config;
 
     public static Context mContext;
@@ -182,5 +185,44 @@ public class AppConfig {
         editor.commit();
     }
 
+    /**
+     * 日夜间模式
+     * @param context
+     * @param spName
+     * @param key
+     * @param value
+     */
+    public static void isNightMode(Context context,String spName, String key, boolean value){
+        if (context == null) {
+            return ;
+        }
+        SharedPreferences.Editor editor = context.getSharedPreferences(spName,Context.MODE_PRIVATE).edit();
+        editor.putBoolean(key,value);
+        editor.commit();
+    }
 
+    /**
+     * 获取存储的日夜间模式
+     * @param context
+     * @param spName
+     * @param key
+     * @return
+     */
+    public static boolean getNightMode(Context context,String spName, String key){
+        boolean value = false;
+        if (context == null) {
+            return value;
+        }
+        SharedPreferences sp = context.getSharedPreferences(spName, Context.MODE_PRIVATE);
+        if (sp != null && key != null) {
+            value = sp.getBoolean(key, false);
+        }
+        return value;
+    }
+
+    public static void cancelSubscription(Subscription subscription) {
+        if (subscription != null && !subscription.isUnsubscribed()) {
+            subscription.unsubscribe();
+        }
+    }
 }

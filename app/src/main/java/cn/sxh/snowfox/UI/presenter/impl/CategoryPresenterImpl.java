@@ -46,6 +46,7 @@ public class CategoryPresenterImpl extends BasePresenterImpl<CategoryView,Banner
     @Override
     public void onBannerChanged() {
         Log.e(TAG, "dagger模式实验成功");
+        loadBanner();
     }
 
     @Override

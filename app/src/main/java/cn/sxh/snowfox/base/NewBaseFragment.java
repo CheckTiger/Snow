@@ -22,8 +22,10 @@ import com.socks.library.KLog;
 import com.squareup.leakcanary.RefWatcher;
 
 import butterknife.ButterKnife;
+import cn.sxh.snowfox.AppConfig;
 import cn.sxh.snowfox.AppContext;
 import cn.sxh.snowfox.R;
+import cn.sxh.snowfox.UI.activity.MainActivity;
 import cn.sxh.snowfox.UI.activity.NewsActivity;
 import cn.sxh.snowfox.UI.presenter.base.BasePresenter;
 import cn.sxh.snowfox.di.component.DaggerFragmentComponent;
@@ -142,7 +144,7 @@ public abstract class NewBaseFragment<T extends BasePresenter> extends Fragment 
         switch (item.getItemId()) {
             case R.id.nav_news:
                 Toast.makeText(getActivity(), "新闻", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getActivity(), NewsActivity.class);
+                Intent intent = new Intent(getActivity(), MainActivity.class);
                 startActivity(intent);
                 break;
             case R.id.nav_photo:
@@ -152,7 +154,7 @@ public abstract class NewBaseFragment<T extends BasePresenter> extends Fragment 
                 Toast.makeText(getActivity(), "视频", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.nav_night_mode:
-                Toast.makeText(getActivity(), "夜间模式", Toast.LENGTH_SHORT).show();
+                AppConfig.isNightMode(AppContext.getInstance(), AppConfig.APP_NIGHT_OR_LIGHT_MODE, AppConfig.APP_NIGHT_OR_LIGHT_MODE, true);
                 break;
         }
         mDrawerLayout.closeDrawer(GravityCompat.START);
@@ -168,6 +170,6 @@ public abstract class NewBaseFragment<T extends BasePresenter> extends Fragment 
         if (mPresenter != null) {
             mPresenter.onDestroy();
         }
-        mSubscription.unsubscribe();
+        AppConfig.cancelSubscription(mSubscription);
     }
 }

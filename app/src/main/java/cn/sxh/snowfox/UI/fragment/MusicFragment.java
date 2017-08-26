@@ -7,16 +7,12 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.ListView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import cn.sxh.snowfox.R;
-import cn.sxh.snowfox.adapter.TextAdapter;
 import cn.sxh.snowfox.base.NewBaseFragment;
-import cn.sxh.snowfox.view.MyListView;
 import cn.sxh.snowfox.view.fragmentView.MusicFragemntView;
 
 /**
