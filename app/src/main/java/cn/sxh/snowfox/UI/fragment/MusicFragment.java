@@ -7,7 +7,6 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.ListView;
 
 import java.util.List;
 
@@ -33,8 +32,7 @@ public class MusicFragment extends NewBaseFragment implements MusicFragemntView 
     NavigationView navView;
     @BindView(R.id.drawer_layout)
     DrawerLayout drawerLayout;
-    @BindView(R.id.listView)
-    ListView listView;
+
 
 
     @Override
