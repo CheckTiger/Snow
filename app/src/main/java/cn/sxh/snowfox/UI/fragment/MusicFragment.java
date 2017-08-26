@@ -9,11 +9,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ListView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import cn.sxh.snowfox.R;
+import cn.sxh.snowfox.adapter.TextAdapter;
 import cn.sxh.snowfox.base.NewBaseFragment;
+import cn.sxh.snowfox.view.MyListView;
 import cn.sxh.snowfox.view.fragmentView.MusicFragemntView;
 
 /**
@@ -33,8 +36,7 @@ public class MusicFragment extends NewBaseFragment implements MusicFragemntView 
     NavigationView navView;
     @BindView(R.id.drawer_layout)
     DrawerLayout drawerLayout;
-    @BindView(R.id.listView)
-    ListView listView;
+
 
 
     @Override
