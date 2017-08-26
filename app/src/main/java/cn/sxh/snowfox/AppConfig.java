@@ -220,6 +220,10 @@ public class AppConfig {
         return value;
     }
 
+    /**
+     * 取消订阅
+     * @param subscription
+     */
     public static void cancelSubscription(Subscription subscription) {
         if (subscription != null && !subscription.isUnsubscribed()) {
             subscription.unsubscribe();
