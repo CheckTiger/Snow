@@ -229,4 +229,16 @@ public class AppConfig {
             subscription.unsubscribe();
         }
     }
+
+
+    /**
+     * 取消订阅
+     * @param subscription
+     */
+    public static void Subscription(Subscription subscription) {
+        if (subscription != null && !subscription.isUnsubscribed()) {
+            subscription.unsubscribe();
+        }
+    }
+
 }
