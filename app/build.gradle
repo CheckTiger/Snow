@@ -76,4 +76,5 @@ dependencies {
     compile'org.greenrobot:greendao:3.0.1'
     compile'org.greenrobot:greendao-generator:3.0.0'
 
+    testCompile 'junit:junit:4.12'
 }
