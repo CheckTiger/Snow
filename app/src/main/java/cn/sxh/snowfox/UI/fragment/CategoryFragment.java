@@ -37,8 +37,8 @@ public class CategoryFragment extends BaseFragment {
     @BindView(R.id.swipeToLoadLayout)
     SwipeToLoadLayout swipeToLoadLayout;
 
-//    private JuHeBannerToutiaoEntity mBnnerEntity;
-    private BannerEntity mBnnerEntity;
+    private JuHeBannerToutiaoEntity mBnnerEntity;
+//    private BannerEntity mBnnerEntity;
     private List<Item> items = new ArrayList<>();
     private MultiTypeAdapter adapter;
     private Activity activity;
@@ -63,10 +63,10 @@ public class CategoryFragment extends BaseFragment {
 
     @Override
     protected void initData() {
-//        ApiRetrofit.getInstance().getBannerByPost(key).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
-//                .subscribe(mBannerSub);
-        ApiRetrofit.getInstance().getBannerByQuNaWan().subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+        ApiRetrofit.getInstance().getBannerByPost(key).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
                 .subscribe(mBannerSub);
+//        ApiRetrofit.getInstance().getBannerByQuNaWan().subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+//                .subscribe(mBannerSub);
     }
 
     private void addDataToMultiType() {
@@ -80,7 +80,7 @@ public class CategoryFragment extends BaseFragment {
     /**
      * 获取banner数据
      */
-    private final Subscriber<BannerEntity> mBannerSub = new Subscriber<BannerEntity>() {
+    private final Subscriber<JuHeBannerToutiaoEntity> mBannerSub = new Subscriber<JuHeBannerToutiaoEntity>() {
         @Override
         public void onCompleted() {
 
@@ -93,10 +93,10 @@ public class CategoryFragment extends BaseFragment {
         }
 
         @Override
-        public void onNext(BannerEntity bannerEntity) {
+        public void onNext(JuHeBannerToutiaoEntity bannerEntity) {
             mBnnerEntity = bannerEntity;
             Log.e(TAG,"请求数据成功------->>>>>>"+bannerEntity.getReason());
-            Log.e(TAG,"请求数据成功------->>>>>>"+bannerEntity.getResult().size());
+            Log.e(TAG,"请求数据成功------->>>>>>"+bannerEntity.getResult().getData().size());
             addDataToMultiType();
         }
     };

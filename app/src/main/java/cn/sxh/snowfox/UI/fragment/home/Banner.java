@@ -13,10 +13,10 @@ import cn.sxh.snowfox.view.multitype.Item;
 public class Banner implements Item {
 
 //    public final JuHeBannerToutiaoEntity mEntity;
-    public final BannerEntity mEntity;
+    public final JuHeBannerToutiaoEntity mEntity;
     public final Activity mActivity;
 
-    public Banner(Activity activity, @NonNull BannerEntity bannerEntity) {
+    public Banner(Activity activity, @NonNull JuHeBannerToutiaoEntity bannerEntity) {
         this.mEntity = bannerEntity;
         this.mActivity = activity;
     }
