@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.util.Log;
 import android.view.View;
 
+import com.socks.library.KLog;
+
 import javax.inject.Inject;
 
 import cn.sxh.snowfox.R;
@@ -44,7 +46,7 @@ public class TechnologyFragment extends NewBaseFragment implements CategoryView{
                 .subscribe(new Action1<BannerChangeEvent>() {
                     @Override
                     public void call(BannerChangeEvent bannerChangeEvent) {
-                        Log.e(TAG, "initPresenter------" + "初始化开始");
+                        KLog.e(TAG, "initPresenter------" + "初始化开始");
                         mCategoryPresenter.onBannerChanged();
                     }
                 });
@@ -72,9 +74,9 @@ public class TechnologyFragment extends NewBaseFragment implements CategoryView{
 
     @Override
     public void initBanner(BannerEntity bannerEntity) {
-        Log.e(TAG, "dagger模式实验成功------" + bannerEntity.getReason());
-        Log.e(TAG, "dagger模式实验成功------" + bannerEntity.getCode());
-        Log.e(TAG, "dagger模式实验成功------" + bannerEntity.getResult().size());
-        Log.e(TAG, "dagger模式实验成功------" + bannerEntity.getTime());
+        KLog.e(TAG, "dagger模式实验成功------" + bannerEntity.getReason());
+        KLog.e(TAG, "dagger模式实验成功------" + bannerEntity.getCode());
+        KLog.e(TAG, "dagger模式实验成功------" + bannerEntity.getResult().size());
+        KLog.e(TAG, "dagger模式实验成功------" + bannerEntity.getTime());
     }
 }

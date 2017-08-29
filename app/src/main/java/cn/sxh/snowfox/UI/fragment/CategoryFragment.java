@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 
 import com.aspsine.swipetoloadlayout.SwipeToLoadLayout;
+import com.socks.library.KLog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,9 +16,11 @@ import cn.sxh.snowfox.API.ApiRetrofit;
 import cn.sxh.snowfox.API.HttpResult;
 import cn.sxh.snowfox.R;
 import cn.sxh.snowfox.UI.fragment.home.Banner;
+import cn.sxh.snowfox.UI.fragment.home.ContentItem;
 import cn.sxh.snowfox.base.BaseFragment;
 import cn.sxh.snowfox.bean.BannerEntity;
 import cn.sxh.snowfox.bean.JuHeBannerToutiaoEntity;
+import cn.sxh.snowfox.view.NewsRecyclerView;
 import cn.sxh.snowfox.view.multitype.Item;
 import cn.sxh.snowfox.view.multitype.MultiTypeAdapter;
 import cn.sxh.snowfox.view.multitype.MultiTypeAsserts;
@@ -33,12 +36,11 @@ import rx.schedulers.Schedulers;
 public class CategoryFragment extends BaseFragment {
     private static final String TAG = CategoryFragment.class.getSimpleName();
     @BindView(R.id.swipe_target)
-    RecyclerView swipeTarget;
+    NewsRecyclerView swipeTarget;
     @BindView(R.id.swipeToLoadLayout)
     SwipeToLoadLayout swipeToLoadLayout;
 
     private JuHeBannerToutiaoEntity mBnnerEntity;
-//    private BannerEntity mBnnerEntity;
     private List<Item> items = new ArrayList<>();
     private MultiTypeAdapter adapter;
     private Activity activity;
@@ -65,12 +67,11 @@ public class CategoryFragment extends BaseFragment {
     protected void initData() {
         ApiRetrofit.getInstance().getBannerByPost(key).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
                 .subscribe(mBannerSub);
-//        ApiRetrofit.getInstance().getBannerByQuNaWan().subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
-//                .subscribe(mBannerSub);
     }
 
     private void addDataToMultiType() {
         items.add(new Banner(getActivity(), mBnnerEntity));
+        items.add(new ContentItem(getActivity(), mBnnerEntity));
         adapter = new MultiTypeAdapter(items);
         adapter.applyGlobalMultiTypePool();
         MultiTypeAsserts.assertAllRegistered(adapter,items);
@@ -88,15 +89,12 @@ public class CategoryFragment extends BaseFragment {
 
         @Override
         public void onError(Throwable e) {
-            Log.e(TAG,"请求数据失败------->>>>>>"+e.getMessage());
-            Log.e(TAG,"请求数据失败------->>>>>>"+e.getLocalizedMessage());
+            KLog.e(TAG,"请求数据失败------->>>>>>"+e.getMessage());
         }
 
         @Override
         public void onNext(JuHeBannerToutiaoEntity bannerEntity) {
             mBnnerEntity = bannerEntity;
-            Log.e(TAG,"请求数据成功------->>>>>>"+bannerEntity.getReason());
-            Log.e(TAG,"请求数据成功------->>>>>>"+bannerEntity.getResult().getData().size());
             addDataToMultiType();
         }
     };
