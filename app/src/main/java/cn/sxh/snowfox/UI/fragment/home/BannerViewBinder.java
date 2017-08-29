@@ -1,6 +1,7 @@
 package cn.sxh.snowfox.UI.fragment.home;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -20,6 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cn.sxh.snowfox.R;
+import cn.sxh.snowfox.UI.activity.NewsActivity;
 import cn.sxh.snowfox.bean.BannerEntity;
 import cn.sxh.snowfox.bean.JuHeBannerToutiaoEntity;
 import cn.sxh.snowfox.view.multitype.ItemViewProvider;
@@ -67,12 +69,10 @@ public class BannerViewBinder extends ItemViewProvider<Banner, BannerViewBinder.
 
     @Override
     public void OnBannerClick(int position) {
-        ArrayList<String> webUrl = new ArrayList<>();
-        if (bannerEntity.getResult() != null) {
-            for (JuHeBannerToutiaoEntity.ResultBean.DataBean result : bannerEntity.getResult().getData()) {
-                webUrl.add(result.getUrl());
-            }
-            Toast.makeText(context, webUrl.get(position), Toast.LENGTH_SHORT).show();
+        if (bannerEntity.getResult().getData() != null) {
+            Intent intent = new Intent(context, NewsActivity.class);
+            intent.putExtra("news_url",bannerEntity.getResult().getData().get(position).getUrl());
+            context.startActivity(intent);
         }
     }
 
