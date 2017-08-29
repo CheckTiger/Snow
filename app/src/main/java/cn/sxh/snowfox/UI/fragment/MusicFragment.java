@@ -7,6 +7,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -67,7 +68,7 @@ public class MusicFragment extends NewBaseFragment implements MusicFragemntView 
 
     @Override
     public void initViewPager(List<String> listTab) {
-
+        Toast.makeText(getActivity(), "添加一些音乐文件", Toast.LENGTH_SHORT).show();
     }
 
 }
