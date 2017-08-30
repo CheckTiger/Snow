@@ -1,8 +1,6 @@
 package cn.sxh.snowfox.UI.fragment;
 
 import android.app.Activity;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 
 import com.aspsine.swipetoloadlayout.SwipeToLoadLayout;
@@ -13,18 +11,15 @@ import java.util.List;
 
 import butterknife.BindView;
 import cn.sxh.snowfox.API.ApiRetrofit;
-import cn.sxh.snowfox.API.HttpResult;
 import cn.sxh.snowfox.R;
 import cn.sxh.snowfox.UI.fragment.home.Banner;
 import cn.sxh.snowfox.UI.fragment.home.ContentItem;
 import cn.sxh.snowfox.base.BaseFragment;
-import cn.sxh.snowfox.bean.BannerEntity;
 import cn.sxh.snowfox.bean.JuHeBannerToutiaoEntity;
 import cn.sxh.snowfox.view.NewsRecyclerView;
 import cn.sxh.snowfox.view.multitype.Item;
 import cn.sxh.snowfox.view.multitype.MultiTypeAdapter;
 import cn.sxh.snowfox.view.multitype.MultiTypeAsserts;
-import rx.Observable;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
