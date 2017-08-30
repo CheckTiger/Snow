@@ -3,6 +3,8 @@ package cn.sxh.snowfox.UI.fragment;
 import android.app.Activity;
 import android.view.View;
 
+import com.aspsine.swipetoloadlayout.OnLoadMoreListener;
+import com.aspsine.swipetoloadlayout.OnRefreshListener;
 import com.aspsine.swipetoloadlayout.SwipeToLoadLayout;
 import com.socks.library.KLog;
 
@@ -28,7 +30,7 @@ import rx.schedulers.Schedulers;
  * Created by snow on 2017/8/5.
  */
 
-public class CategoryFragment extends BaseFragment {
+public class CategoryFragment extends BaseFragment implements OnRefreshListener,OnLoadMoreListener{
     private static final String TAG = CategoryFragment.class.getSimpleName();
     @BindView(R.id.swipe_target)
     NewsRecyclerView swipeTarget;
@@ -62,6 +64,12 @@ public class CategoryFragment extends BaseFragment {
     protected void initData() {
         ApiRetrofit.getInstance().getBannerByPost(key).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
                 .subscribe(mBannerSub);
+        setListeners();
+    }
+
+    private void setListeners() {
+        swipeToLoadLayout.setOnRefreshListener(this);
+        swipeToLoadLayout.setOnLoadMoreListener(this);
     }
 
     private void addDataToMultiType() {
@@ -79,12 +87,14 @@ public class CategoryFragment extends BaseFragment {
     private final Subscriber<JuHeBannerToutiaoEntity> mBannerSub = new Subscriber<JuHeBannerToutiaoEntity>() {
         @Override
         public void onCompleted() {
-
+            KLog.e(TAG,"上拉加载下拉刷新------->>>>>>"+"结束了");
         }
 
         @Override
         public void onError(Throwable e) {
             KLog.e(TAG,"请求数据失败------->>>>>>"+e.getMessage());
+            swipeToLoadLayout.setRefreshing(false);
+            swipeToLoadLayout.setLoadingMore(false);
         }
 
         @Override
@@ -93,4 +103,29 @@ public class CategoryFragment extends BaseFragment {
             addDataToMultiType();
         }
     };
+
+    @Override
+    public void onLoadMore() {
+        ApiRetrofit.getInstance().getBannerByPost(key).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                .subscribe(mBannerSub);
+        swipeToLoadLayout.setLoadingMore(false);
+    }
+
+    @Override
+    public void onRefresh() {
+        ApiRetrofit.getInstance().getBannerByPost(key).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                .subscribe(mBannerSub);
+        swipeToLoadLayout.setRefreshing(false);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        if (swipeToLoadLayout.isRefreshing()) {
+            swipeToLoadLayout.setRefreshing(false);
+        }
+        if (swipeToLoadLayout.isLoadingMore()) {
+            swipeToLoadLayout.setLoadingMore(false);
+        }
+    }
 }
