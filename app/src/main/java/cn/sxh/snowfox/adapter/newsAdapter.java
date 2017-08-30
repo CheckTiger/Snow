@@ -60,21 +60,33 @@ public class newsAdapter extends BaseAdapter {
             holder = (ViewHolder) view.getTag();
         }
         for (int j = 0; j < bannerEntity.getResult().getData().size(); j++) {
-            Glide.with(context).load(bannerEntity.getResult().getData().get(i).getThumbnail_pic_s()).into(holder.newsIcon);
-            holder.newsTitle.setText(bannerEntity.getResult().getData().get(i).getTitle());
-            holder.newsActor.setText(bannerEntity.getResult().getData().get(i).getAuthor_name());
-            holder.newsData.setText(bannerEntity.getResult().getData().get(i).getDate());
-            holder.newsSource.setText(bannerEntity.getResult().getData().get(i).getCategory());
+            initViewData(holder,i);
         }
-        holder.mLinearLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(context, NewsActivity.class);
-                intent.putExtra("news_url",bannerEntity.getResult().getData().get(i).getUrl());
-                context.startActivity(intent);
-            }
-        });
+        holder.mLinearLayout.setOnClickListener(view1 -> gotoNewsDetail(i));
         return view;
+    }
+
+    /**
+     * 填充数据
+     * @param holder
+     * @param i
+     */
+    private void initViewData(ViewHolder holder, int i) {
+        Glide.with(context).load(bannerEntity.getResult().getData().get(i).getThumbnail_pic_s()).into(holder.newsIcon);
+        holder.newsTitle.setText(bannerEntity.getResult().getData().get(i).getTitle());
+        holder.newsActor.setText(bannerEntity.getResult().getData().get(i).getAuthor_name());
+        holder.newsData.setText(bannerEntity.getResult().getData().get(i).getDate());
+        holder.newsSource.setText(bannerEntity.getResult().getData().get(i).getCategory());
+    }
+
+    /**
+     * 跳转到新闻详情页面
+     * @param i
+     */
+    private void gotoNewsDetail(int i) {
+        Intent intent = new Intent(context, NewsActivity.class);
+        intent.putExtra("news_url",bannerEntity.getResult().getData().get(i).getUrl());
+        context.startActivity(intent);
     }
 
     static class ViewHolder  {
