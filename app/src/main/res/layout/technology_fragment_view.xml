@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <cn.sxh.snowfox.view.NavigationTabStrip
+        android:id="@+id/navigation_tab"
+        android:layout_width="match_parent"
+        android:layout_height="43dp"
+        android:layout_gravity="center"
+        android:background="@color/white"
+        app:nts_color="@color/color_type_style"
+        app:nts_size="@dimen/text_normal_medium"
+        app:nts_weight="2dp"
+        app:nts_factor="1"
+        app:nts_titles="@array/order_titles"
+        app:nts_type="line"
+        app:nts_gravity="bottom"
+        app:nts_corners_radius="1dp"
+        app:nts_animation_duration="200"
+        app:nts_active_color="@color/color_type_style"
+        app:nts_inactive_color="@color/xml_color_text_normal_gray"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/xml_color_text_normal_gray_cd"/>
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        layout="@layout/fragment_list_content"/>
+</LinearLayout>

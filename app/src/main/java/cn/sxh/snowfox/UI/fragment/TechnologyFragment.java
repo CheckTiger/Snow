@@ -1,82 +1,76 @@
 package cn.sxh.snowfox.UI.fragment;
 
-import android.app.Activity;
-import android.util.Log;
 import android.view.View;
+import android.widget.ListView;
 
+import com.aspsine.swipetoloadlayout.SwipeToLoadLayout;
 import com.socks.library.KLog;
 
-import javax.inject.Inject;
-
+import butterknife.BindView;
 import cn.sxh.snowfox.R;
-import cn.sxh.snowfox.UI.presenter.impl.CategoryPresenterImpl;
-import cn.sxh.snowfox.base.NewBaseFragment;
-import cn.sxh.snowfox.bean.BannerEntity;
-import cn.sxh.snowfox.event.BannerChangeEvent;
-import cn.sxh.snowfox.utils.RxBus;
-import cn.sxh.snowfox.view.fragmentView.CategoryView;
-import rx.functions.Action1;
+import cn.sxh.snowfox.base.BaseFragment;
+import cn.sxh.snowfox.view.NavigationTabStrip;
 
 /**
  * Created by snow on 2017/8/5.
  */
 
-public class TechnologyFragment extends NewBaseFragment implements CategoryView{
+public class TechnologyFragment extends BaseFragment {
     private static final String TAG = TechnologyFragment.class.getSimpleName();
+    @BindView(R.id.navigation_tab)
+    NavigationTabStrip navigationTab;
+    @BindView(R.id.swipe_target)
+    ListView swipeTarget;
+    @BindView(R.id.swipeToLoadLayout)
+    SwipeToLoadLayout swipeToLoadLayout;
 
-    @Inject
-    CategoryPresenterImpl mCategoryPresenter;
-    @Inject
-    Activity mActivity;
+    private int mIndex = 0;
+
     @Override
-    public void initInjector() {
-        mFragmentComponent.inject(this);
-    }
-
-    @Override
-    public void initViews(View view) {
-        initPresenter();
-    }
-
-    private void initPresenter() {
-        mPresenter = mCategoryPresenter;
-        mPresenter.attachView(this);
-        mPresenter.onCreate();
-        mSubscription = RxBus.getInstance().toObservable(BannerChangeEvent.class)
-                .subscribe(new Action1<BannerChangeEvent>() {
-                    @Override
-                    public void call(BannerChangeEvent bannerChangeEvent) {
-                        KLog.e(TAG, "initPresenter------" + "初始化开始");
-                        mCategoryPresenter.onBannerChanged();
-                    }
-                });
+    protected int getContentView() {
+        return R.layout.technology_fragment_view;
     }
 
     @Override
-    public int getLayoutId() {
-        return R.layout.activity_news;
+    protected void initUI(View view) {
+        navigationTab.setTabIndex(0, true);
+        navigationTab.setOnTabStripSelectedIndexListener(new NavigationTabStrip.OnTabStripSelectedIndexListener() {
+            @Override
+            public void onStartTabSelected(String title, int index) {
+                mIndex = index;
+            }
+
+            @Override
+            public void onEndTabSelected(String title, int index) {
+                changeContent(mIndex);
+            }
+        });
+    }
+
+    private void changeContent(int mIndex) {
+        switch (mIndex) {
+            case 0:
+                KLog.e(TAG, "NavigationTabStrip选择onStartTabSelected下标为-------->>>" + mIndex);
+                break;
+            case 1:
+                KLog.e(TAG, "NavigationTabStrip选择onStartTabSelected下标为-------->>>" + mIndex);
+                break;
+            case 2:
+                KLog.e(TAG, "NavigationTabStrip选择onStartTabSelected下标为-------->>>" + mIndex);
+                break;
+            case 3:
+                KLog.e(TAG, "NavigationTabStrip选择onStartTabSelected下标为-------->>>" + mIndex);
+                break;
+            case 4:
+                KLog.e(TAG, "NavigationTabStrip选择onStartTabSelected下标为-------->>>" + mIndex);
+                break;
+        }
+
     }
 
     @Override
-    public void showProgress() {
+    protected void initData() {
 
     }
 
-    @Override
-    public void hideProgress() {
-
-    }
-
-    @Override
-    public void showMsg(String message) {
-        Log.e(TAG, "dagger模式实验成功------" + message);
-    }
-
-    @Override
-    public void initBanner(BannerEntity bannerEntity) {
-        KLog.e(TAG, "dagger模式实验成功------" + bannerEntity.getReason());
-        KLog.e(TAG, "dagger模式实验成功------" + bannerEntity.getCode());
-        KLog.e(TAG, "dagger模式实验成功------" + bannerEntity.getResult().size());
-        KLog.e(TAG, "dagger模式实验成功------" + bannerEntity.getTime());
-    }
 }

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="choose_picture">
+        <item>相册</item>
+        <item>相机</item>
+    </string-array>
+    <string-array name="order_titles">
+        <item>全部</item>
+        <item>知识学习</item>
+        <item>自定义</item>
+        <item>工具类</item>
+        <item>问题总结</item>
+    </string-array>
+</resources>
