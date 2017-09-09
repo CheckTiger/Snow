@@ -27,9 +27,8 @@
         android:layout_width="match_parent"
         android:layout_height="1px"
         android:background="@color/xml_color_text_normal_gray_cd"/>
-    <include
+    <FrameLayout
+        android:id="@+id/context_container"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        layout="@layout/fragment_list_content"/>
+        android:layout_height="match_parent"/>
 </LinearLayout>
