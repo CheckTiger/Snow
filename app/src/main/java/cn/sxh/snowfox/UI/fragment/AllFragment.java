@@ -28,4 +28,8 @@ public class AllFragment extends Fragment {
         return textView;
     }
 
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+    }
 }
