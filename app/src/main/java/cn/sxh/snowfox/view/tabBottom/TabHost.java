@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cn.sxh.snowfox.R;
-import cn.sxh.snowfox.adapter.BaseAdapter;
+import cn.sxh.snowfox.adapter.BaseTabAdapter;
 
 /**
  * Created by snow on 2017/8/2.
@@ -48,13 +48,13 @@ public class TabHost {
         addTabChangeListener(tab);
     }
 
-    public void addTabs(BaseAdapter baseAdapter, int textSize, int textColor, int selectedTextColor, int drawablePadding,
+    public void addTabs(BaseTabAdapter baseTabAdapter, int textSize, int textColor, int selectedTextColor, int drawablePadding,
                         int iconWidth, int iconHeight){
-        int count = baseAdapter.getCount();
-        int hasMsgIndex = baseAdapter.hasMsgIndex();
-        String[] textArray = baseAdapter.getTextArray();
-        int[] iconImageArray = baseAdapter.getIconImageArray();
-        int[] selectedIconImageArray = baseAdapter.getSelectedIconImageArray();
+        int count = baseTabAdapter.getCount();
+        int hasMsgIndex = baseTabAdapter.hasMsgIndex();
+        String[] textArray = baseTabAdapter.getTextArray();
+        int[] iconImageArray = baseTabAdapter.getIconImageArray();
+        int[] selectedIconImageArray = baseTabAdapter.getSelectedIconImageArray();
         if (count==0||textArray==null||iconImageArray==null||selectedIconImageArray==null) return;
         if (textArray.length!=count||iconImageArray.length!=count||selectedIconImageArray.length!=count) return;
 

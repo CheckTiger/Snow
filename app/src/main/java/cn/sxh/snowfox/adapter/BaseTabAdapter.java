@@ -7,7 +7,7 @@ import android.support.v4.app.FragmentManager;
  * Created by snow on 2017/8/3.
  */
 
-public abstract class BaseAdapter {
+public abstract class BaseTabAdapter {
     public abstract int getCount();
     public abstract int hasMsgIndex();
 

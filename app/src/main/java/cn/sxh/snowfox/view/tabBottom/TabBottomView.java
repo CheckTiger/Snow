@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
 import cn.sxh.snowfox.R;
-import cn.sxh.snowfox.adapter.BaseAdapter;
+import cn.sxh.snowfox.adapter.BaseTabAdapter;
 import cn.sxh.snowfox.adapter.TabViewPagerAdapter;
 import cn.sxh.snowfox.utils.DisplayUtil;
 
@@ -118,15 +118,15 @@ public class TabBottomView extends RelativeLayout {
         addView(contentViewPager);
     }
 
-    public void setAdapter(BaseAdapter baseAdapter) {
-        setAdapter(baseAdapter, 0);
+    public void setAdapter(BaseTabAdapter baseTabAdapter) {
+        setAdapter(baseTabAdapter, 0);
     }
 
-    public void setAdapter(BaseAdapter baseAdapter, int index) {
-        if (baseAdapter == null) return;
-        tabHost.addTabs(baseAdapter, textSize, textColor, selectedTextColor,drawablePadding,iconWidth,iconHeight);
+    public void setAdapter(BaseTabAdapter baseTabAdapter, int index) {
+        if (baseTabAdapter == null) return;
+        tabHost.addTabs(baseTabAdapter, textSize, textColor, selectedTextColor,drawablePadding,iconWidth,iconHeight);
 
-        contentViewPager.setAdapter(new TabViewPagerAdapter(baseAdapter.getFragmentManager(), baseAdapter.getFragmentArray()));
+        contentViewPager.setAdapter(new TabViewPagerAdapter(baseTabAdapter.getFragmentManager(), baseTabAdapter.getFragmentArray()));
 
         setCurrentItem(index);
     }

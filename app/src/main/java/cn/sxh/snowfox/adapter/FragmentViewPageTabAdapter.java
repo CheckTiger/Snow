@@ -9,7 +9,7 @@ import cn.sxh.snowfox.R;
  * Created by snow on 2017/8/3.
  */
 
-public class FragmentViewPageAdapter extends BaseAdapter {
+public class FragmentViewPageTabAdapter extends BaseTabAdapter {
 
     private Fragment[] fragmentArray;
     private FragmentManager fragmentManager;
@@ -20,7 +20,7 @@ public class FragmentViewPageAdapter extends BaseAdapter {
         this.hasMsgIndex = hasMsgIndex;
     }
 
-    public FragmentViewPageAdapter(Fragment[] fragmentArray, FragmentManager fragmentManager) {
+    public FragmentViewPageTabAdapter(Fragment[] fragmentArray, FragmentManager fragmentManager) {
         this.fragmentArray = fragmentArray;
         this.fragmentManager = fragmentManager;
     }
