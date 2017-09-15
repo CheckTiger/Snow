@@ -6,15 +6,15 @@ import org.greenrobot.greendao.generator.Schema;
 
 public class SnowFox {
     public static void main(String[] args) throws Exception {
-        int version = 1;
-        String defaultJavaPackage = "cn.sxh.snow.greendao";
+        int version = 2;
+        String defaultJavaPackage = "cn.sxh.greendao";
         Schema schema = new Schema(version, defaultJavaPackage);
         createTable(schema);
         new DaoGenerator().generateAll(schema,"./app/src/main/java-gen");
     }
 
     private static void createTable(Schema schema) {
-        Entity entity = schema.addEntity("SnowFoxTable");
+        Entity entity = schema.addEntity("TechnologyTable");
         /**
          * 频道名称
          */
@@ -27,17 +27,5 @@ public class SnowFox {
          * 频道类型
          */
         entity.addStringProperty("SnowFoxChannelType").notNull();
-        /**
-         * 选中的频道
-         */
-        entity.addBooleanProperty("SnowFoxChannelSelect").notNull();
-        /**
-         * 频道的排序位置
-         */
-        entity.addIntProperty("SnowFoxChannelIndex").notNull();
-        /**
-         * 频道是否是固定的
-         */
-        entity.addBooleanProperty("SnowFoxChannelFixed");
     }
 }
