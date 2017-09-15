@@ -220,6 +220,42 @@ public class AppConfig {
         return value;
     }
 
+
+    /**
+     * 初始化数据库
+     * @param context
+     * @param spName
+     * @param key
+     * @param value
+     */
+    public static void isInitDB(Context context,String spName, String key, boolean value){
+        if (context == null) {
+            return ;
+        }
+        SharedPreferences.Editor editor = context.getSharedPreferences(spName,Context.MODE_PRIVATE).edit();
+        editor.putBoolean(key,value);
+        editor.commit();
+    }
+
+    /**
+     * 获取数据库
+     * @param context
+     * @param spName
+     * @param key
+     * @return
+     */
+    public static boolean getDB(Context context,String spName, String key){
+        boolean value = false;
+        if (context == null) {
+            return value;
+        }
+        SharedPreferences sp = context.getSharedPreferences(spName, Context.MODE_PRIVATE);
+        if (sp != null && key != null) {
+            value = sp.getBoolean(key, false);
+        }
+        return value;
+    }
+
     /**
      * 取消订阅
      * @param subscription
