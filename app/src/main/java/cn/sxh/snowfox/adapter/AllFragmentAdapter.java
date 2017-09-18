@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.zhy.autolayout.utils.AutoUtils;
@@ -55,19 +56,37 @@ public class AllFragmentAdapter extends BaseAdapter {
             holder = (ViewHolder) view.getTag();
         }
         initInfo(holder,i);
+        initUIListener(holder,i);
         return view;
+    }
+
+    private void initUIListener(ViewHolder holder, int i) {
+        holder.mLinearLayout.setOnClickListener(view -> listener.onLinearLayoutClick(holder,i));
     }
 
     private void initInfo(ViewHolder holder, int i) {
         holder.title_name.setText(list.get(i));
     }
 
-    static class ViewHolder{
+    public class ViewHolder{
         private TextView title_name;
+        private LinearLayout mLinearLayout;
 
         public ViewHolder(View view) {
             title_name = view.findViewById(R.id.all_fragment_item_text);
+            mLinearLayout = view.findViewById(R.id.all_fragment_linearLayout);
             AutoUtils.auto(view);
         }
+    }
+
+    /**
+     * 练习接口回调的写作方式
+     */
+    private OnLinearLayoutListener listener;
+    public interface OnLinearLayoutListener{
+        void onLinearLayoutClick(ViewHolder holder,int position);
+    }
+    public void setOnLinearLayoutListener(OnLinearLayoutListener layoutListener) {
+        this.listener = layoutListener;
     }
 }

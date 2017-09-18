@@ -1,5 +1,6 @@
 package cn.sxh.snowfox.UI.fragment;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.ListView;
 
@@ -7,6 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cn.sxh.snowfox.R;
+import cn.sxh.snowfox.UI.activity.MainActivity;
+import cn.sxh.snowfox.UI.activity.NewsActivity;
 import cn.sxh.snowfox.adapter.AllFragmentAdapter;
 import cn.sxh.snowfox.base.BaseFragment;
 
@@ -38,5 +41,15 @@ public class AllFragment extends BaseFragment {
             list.add("宋学虎" + i);
         }
         mListView.setAdapter(adapter);
+        adapter.setOnLinearLayoutListener((holder, position) -> gotoActivity(position));
+    }
+
+    private void gotoActivity(int position) {
+        switch (position) {
+            case 0:
+            Intent intent = new Intent(getActivity(), NewsActivity.class);
+            startActivity(intent);
+        }
+
     }
 }
