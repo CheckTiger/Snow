@@ -11,6 +11,7 @@ import java.util.Map;
 
 import cn.sxh.snowfox.AppContext;
 import cn.sxh.snowfox.R;
+import cn.sxh.snowfox.adapter.KnowledgeExpandableListViewAdapter;
 import cn.sxh.snowfox.base.BaseFragment;
 
 import static android.R.id.icon;
@@ -26,6 +27,7 @@ import static android.R.id.list;
 public class KnowledgeFragment extends BaseFragment {
     private ExpandableListView listview;
     private Map<String, List<String>> dataset = new HashMap<>();
+    private KnowledgeExpandableListViewAdapter adapter;
     @Override
     protected int getContentView() {
         return R.layout.knowledge_fragment_layout;
@@ -61,6 +63,8 @@ public class KnowledgeFragment extends BaseFragment {
                 dataset.put(technologyName.get(i),listUI);
             }
         }
+        adapter = new KnowledgeExpandableListViewAdapter( dataset, getActivity(),technologyName);
+        listview.setAdapter(adapter);
     }
 
 }
