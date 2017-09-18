@@ -9,6 +9,7 @@ import com.socks.library.KLog;
 import org.greenrobot.greendao.query.Query;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import cn.sxh.greendao.TechnologyTable;
@@ -45,15 +46,9 @@ public class AllFragment extends BaseFragment {
 
     @Override
     protected void initData() {
-        Query<TechnologyTable> technologyTableQuery = AppContext.getTechnologyTableDao().queryBuilder()
-                .where(TechnologyTableDao.Properties.SnowFoxChannelName.eq(true))
-                .orderAsc(TechnologyTableDao.Properties.SnowFoxChannelId).build();
-        List<TechnologyTable> channelListMine = technologyTableQuery.list();
-        for (int i = 0; i < channelListMine.size(); i++) {
-            KLog.e(TAG,channelListMine.get(i).getSnowFoxChannelName());
-        }
-        for (int i = 0; i < 20; i++) {
-            list.add("宋学虎" + i);
+        List<String> technologyName = Arrays.asList(AppContext.getInstance().getResources().getStringArray(R.array.all_fragment_item));
+        for (int i = 0; i < technologyName.size(); i++) {
+            list.add(technologyName.get(i));
         }
         mListView.setAdapter(adapter);
         adapter.setOnLinearLayoutListener((holder, position) -> gotoActivity(position));

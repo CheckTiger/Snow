@@ -12,6 +12,19 @@
         <item>工具类</item>
         <item>问题总结</item>
     </string-array>
+    <string-array name="all_fragment_item">
+        <item>常用布局</item>
+        <item>常见控件</item>
+        <item>常见适配器</item>
+        <item>常见文件保存</item>
+        <item>多媒体使用</item>
+        <item>常见问题</item>
+        <item>列表优化</item>
+        <item>系统图片相机</item>
+        <item>常见提示框</item>
+        <item>系统权限</item>
+        <item>三级联动</item>
+    </string-array>
     <string-array name="order_titles_id">
         <item>1</item>
         <item>2</item>
