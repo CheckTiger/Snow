@@ -11,7 +11,7 @@
     <include
         android:id="@+id/swipe_refresh_header"
         layout="@layout/layout_home_head"/>
-    <cn.sxh.snowfox.view.NewsRecyclerView
+    <android.support.v7.widget.RecyclerView
         android:id="@+id/swipe_target"
         android:orientation="vertical"
         app:layoutManager="LinearLayoutManager"
