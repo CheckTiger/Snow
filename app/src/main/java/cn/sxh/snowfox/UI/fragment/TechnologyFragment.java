@@ -70,19 +70,19 @@ public class TechnologyFragment extends BaseFragment {
                 }
                 break;
             case 2:
-                if (toolsFragment == null) {
-                    toolsFragment = new ToolsFragment();
-                    mTransaction.add(R.id.context_container, toolsFragment);
-                } else {
-                    mTransaction.show(toolsFragment);
-                }
-                break;
-            case 3:
                 if (definedFragment == null) {
                     definedFragment = new DefinedFragment();
                     mTransaction.add(R.id.context_container, definedFragment);
                 } else {
                     mTransaction.show(definedFragment);
+                }
+                break;
+            case 3:
+                if (toolsFragment == null) {
+                    toolsFragment = new ToolsFragment();
+                    mTransaction.add(R.id.context_container, toolsFragment);
+                } else {
+                    mTransaction.show(toolsFragment);
                 }
                 break;
             case 4:

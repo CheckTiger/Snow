@@ -19,6 +19,7 @@ import cn.sxh.snowfox.UI.fragment.home.Banner;
 import cn.sxh.snowfox.UI.fragment.home.ContentItem;
 import cn.sxh.snowfox.base.BaseFragment;
 import cn.sxh.snowfox.bean.JuHeBannerToutiaoEntity;
+import cn.sxh.snowfox.view.NewsRecyclerView;
 import cn.sxh.snowfox.view.multitype.Item;
 import cn.sxh.snowfox.view.multitype.MultiTypeAdapter;
 import cn.sxh.snowfox.view.multitype.MultiTypeAsserts;
@@ -33,7 +34,7 @@ import rx.schedulers.Schedulers;
 public class CategoryFragment extends BaseFragment implements OnRefreshListener,OnLoadMoreListener{
     private static final String TAG = CategoryFragment.class.getSimpleName();
     @BindView(R.id.swipe_target)
-    RecyclerView swipeTarget;
+    NewsRecyclerView swipeTarget;
     @BindView(R.id.swipeToLoadLayout)
     SwipeToLoadLayout swipeToLoadLayout;
 
