@@ -5,6 +5,7 @@
         <item>相册</item>
         <item>相机</item>
     </string-array>
+
     <string-array name="order_titles">
         <item>全部</item>
         <item>知识学习</item>
@@ -12,6 +13,7 @@
         <item>工具类</item>
         <item>问题总结</item>
     </string-array>
+
     <string-array name="all_fragment_item">
         <item>常用布局</item>
         <item>常见控件</item>
@@ -25,6 +27,11 @@
         <item>系统权限</item>
         <item>三级联动</item>
     </string-array>
+
+    <string-array name="all_defined_view">
+        <item>钟表控件</item>
+    </string-array>
+
     <string-array name="order_titles_id">
         <item>1</item>
         <item>2</item>
@@ -32,4 +39,5 @@
         <item>4</item>
         <item>5</item>
     </string-array>
+
 </resources>

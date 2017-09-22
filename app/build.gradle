@@ -14,8 +14,8 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
-    splits{
-        abi{
+    splits {
+        abi {
             enable true
             reset()
             include 'x86', 'armeabi-v7a'
@@ -47,34 +47,48 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    apt 'com.jakewharton:butterknife-compiler:8.4.0'
+    //懒人库
+    //dagger支持
+    //RxAndroid支持
+    //RxJava支持
+    //retrofit网络框架
+    //gson数据解析
+    //RxJava支持
+    //retrofit的底层网络框架
+    //拦截器
+    //上下拉刷新的实现
+    //复杂列表的实现
+    //轮播图的实现
+    //加载图片的框架
+    //log日志
+
     compile 'com.android.support:appcompat-v7:26.+'
-    apt 'com.google.dagger:dagger-compiler:2.5'
-    provided 'org.glassfish:javax.annotation:10.0-b28'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.zhy:autolayout:1.4.3'
     compile 'com.android.support:design:26.0.0-alpha1'
-    compile 'com.jakewharton:butterknife:8.4.0'//懒人库
-    compile 'com.google.dagger:dagger:2.5'//dagger支持
-    compile 'io.reactivex:rxandroid:1.2.0'//RxAndroid支持
-    compile 'io.reactivex:rxjava:1.1.5'//RxJava支持
-    compile 'com.squareup.retrofit2:retrofit:2.0.2'//retrofit网络框架
-    compile 'com.squareup.retrofit2:converter-gson:2.0.2'//gson数据解析
+    compile 'com.jakewharton:butterknife:8.4.0'
+    compile 'com.google.dagger:dagger:2.5'
+    compile 'io.reactivex:rxandroid:1.2.0'
+    compile 'io.reactivex:rxjava:1.1.5'
+    compile 'com.squareup.retrofit2:retrofit:2.0.2'
+    compile 'com.squareup.retrofit2:converter-gson:2.0.2'
     compile 'com.squareup.retrofit2:converter-jackson:2.0.0'
-    compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'//RxJava支持
-    compile 'com.squareup.okhttp3:okhttp:3.0.1'//retrofit的底层网络框架
-    compile 'com.squareup.okhttp3:logging-interceptor:3.0.1'//拦截器
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+    compile 'com.squareup.okhttp3:okhttp:3.0.1'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.0.1'
     compile 'com.squareup.okio:okio:1.6.0'
-    compile 'com.github.Aspsine:SwipeToLoadLayout:1.0.3'//上下拉刷新的实现
-    compile 'me.drakeet.multitype:multitype:3.2.0'//复杂列表的实现
-    compile 'com.youth.banner:banner:1.4.9'  //轮播图的实现
-    compile 'com.github.bumptech.glide:glide:3.7.0'  //加载图片的框架
-    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.4-beta2'
-    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'
+    compile 'com.github.Aspsine:SwipeToLoadLayout:1.0.3'
+    compile 'me.drakeet.multitype:multitype:3.2.0'
+    compile 'com.youth.banner:banner:1.4.9'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.github.zhaokaiqiang.klog:library:1.4.0'
+    compile 'org.greenrobot:greendao:3.0.1'
+    compile 'org.greenrobot:greendao-generator:3.0.0'
     testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'
-    compile 'com.github.zhaokaiqiang.klog:library:1.4.0'//log日志
-    compile'org.greenrobot:greendao:3.0.1'
-    compile'org.greenrobot:greendao-generator:3.0.0'
-
     testCompile 'junit:junit:4.12'
+    apt 'com.jakewharton:butterknife-compiler:8.4.0'
+    apt 'com.google.dagger:dagger-compiler:2.5'
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.4-beta2'
+    provided 'org.glassfish:javax.annotation:10.0-b28'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'
 }
