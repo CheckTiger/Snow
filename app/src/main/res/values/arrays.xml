@@ -30,6 +30,7 @@
 
     <string-array name="all_defined_view">
         <item>钟表控件</item>
+        <item>模仿小米手环App计步数据View</item>
     </string-array>
 
     <string-array name="order_titles_id">

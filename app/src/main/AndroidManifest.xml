@@ -32,7 +32,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".UI.activity.NewsActivity" />
-        <activity android:name=".UI.activity.ClockViewActivity"></activity>
+        <activity android:name=".UI.activity.ClockViewActivity" />
+        <activity android:name=".UI.activity.MiStepViewActivity"></activity>
     </application>
 
 </manifest>
