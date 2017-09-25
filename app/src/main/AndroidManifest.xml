@@ -33,7 +33,8 @@
         </activity>
         <activity android:name=".UI.activity.NewsActivity" />
         <activity android:name=".UI.activity.ClockViewActivity" />
-        <activity android:name=".UI.activity.MiStepViewActivity"></activity>
+        <activity android:name=".UI.activity.MiStepViewActivity" />
+        <activity android:name=".UI.activity.BankActivity"></activity>
     </application>
 
 </manifest>
