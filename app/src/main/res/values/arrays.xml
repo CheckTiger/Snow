@@ -90,6 +90,7 @@
     <string-array name="all_defined_view">
         <item>钟表控件</item>
         <item>模仿小米手环App计步数据View</item>
+        <item>仿淘宝淘抢购进度条View</item>
     </string-array>
 
     <string-array name="order_titles_id">
@@ -100,4 +101,13 @@
         <item>5</item>
     </string-array>
 
+    <declare-styleable name="TaoBaoSaleProgressView">
+        <attr name="sideColor" format="color" />
+        <attr name="textColor" format="color" />
+        <attr name="sideWidth" format="dimension" />
+        <attr name="overText" format="string" />
+        <attr name="nearOverText" format="string" />
+        <attr name="textSize" format="dimension" />
+        <attr name="isNeedAnim" format="boolean" />
+    </declare-styleable>
 </resources>

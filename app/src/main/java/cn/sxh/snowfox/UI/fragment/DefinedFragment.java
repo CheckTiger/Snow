@@ -13,6 +13,7 @@ import cn.sxh.snowfox.R;
 import cn.sxh.snowfox.UI.activity.ClockViewActivity;
 import cn.sxh.snowfox.UI.activity.MiStepViewActivity;
 import cn.sxh.snowfox.UI.activity.NewsActivity;
+import cn.sxh.snowfox.UI.activity.TaoBaoSaleProgressViewActivity;
 import cn.sxh.snowfox.adapter.AllFragmentAdapter;
 import cn.sxh.snowfox.base.BaseFragment;
 
@@ -56,6 +57,10 @@ public class DefinedFragment extends BaseFragment {
             case 1:
                 Intent intent1 = new Intent(getActivity(), MiStepViewActivity.class);
                 startActivity(intent1);
+                break;
+            case 2:
+                Intent intent2 = new Intent(getActivity(), TaoBaoSaleProgressViewActivity.class);
+                startActivity(intent2);
                 break;
         }
     }
