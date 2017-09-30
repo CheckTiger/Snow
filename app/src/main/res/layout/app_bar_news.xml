@@ -51,5 +51,5 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="16dp"
         android:src="@mipmap/ic_arrow_upward"
-        app:layout_behavior=".view.ScrollAwareFABBehavior"/>
+        app:layout_behavior=".view.DefinedAndCollectView.ScrollAwareFABBehavior"/>
 </android.support.design.widget.CoordinatorLayout>

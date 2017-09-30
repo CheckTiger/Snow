@@ -1,7 +1,9 @@
 package cn.sxh.snowfox.UI.fragment;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.ExpandableListView;
+import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -11,6 +13,9 @@ import java.util.Map;
 
 import cn.sxh.snowfox.AppContext;
 import cn.sxh.snowfox.R;
+import cn.sxh.snowfox.UI.activity.NewsActivity;
+import cn.sxh.snowfox.UI.activity.ViewStudyActivity;
+import cn.sxh.snowfox.adapter.AllFragmentAdapter;
 import cn.sxh.snowfox.adapter.KnowledgeExpandableListViewAdapter;
 import cn.sxh.snowfox.base.BaseFragment;
 
@@ -25,9 +30,8 @@ import static android.R.id.list;
  */
 
 public class KnowledgeFragment extends BaseFragment {
-    private ExpandableListView listview;
-    private Map<String, List<String>> dataset = new HashMap<>();
-    private KnowledgeExpandableListViewAdapter adapter;
+    private ListView listview;
+    private AllFragmentAdapter adapter;
     @Override
     protected int getContentView() {
         return R.layout.knowledge_fragment_layout;
@@ -40,31 +44,18 @@ public class KnowledgeFragment extends BaseFragment {
 
     @Override
     protected void initData() {
-        List<String> technologyName = Arrays.asList(AppContext.getInstance().getResources().getStringArray(R.array.all_fragment_item));
-        String[] technologyName1 = new String[technologyName.size()];
-        List<String> listRelative = new ArrayList<>();
-        List<String> listUI = new ArrayList<>();
-        for (int i = 0; i < technologyName.size(); i++) {
-            technologyName1[i] = technologyName.get(i);
-            if (technologyName.get(i).equals("常用布局")) {
-                listRelative.add("相对布局");
-                listRelative.add("线性布局");
-                listRelative.add("帧布局");
-                listRelative.add("表格布局");
-                listRelative.add("绝对布局");
-                dataset.put(technologyName.get(i),listRelative);
-            }
-            if (technologyName.get(i).equals("常见控件")) {
-                listUI.add("textView");
-                listUI.add("button");
-                listUI.add("ImageView");
-                listUI.add("ImageButton");
-                listUI.add("Dialog");
-                dataset.put(technologyName.get(i),listUI);
-            }
-        }
-        adapter = new KnowledgeExpandableListViewAdapter( dataset, getActivity(),technologyName);
+        List<String> technologyName = Arrays.asList(AppContext.getInstance().getResources().getStringArray(R.array.knowledge_fragment_item));
+        adapter = new AllFragmentAdapter( getContext(),technologyName);
         listview.setAdapter(adapter);
+        adapter.setOnLinearLayoutListener((holder, position) -> gotoActivity(position));
     }
 
+    private void gotoActivity(int position) {
+        switch (position) {
+            case 0:
+                Intent intent = new Intent(getActivity(), ViewStudyActivity.class);
+                startActivity(intent);
+                break;
+        }
+    }
 }

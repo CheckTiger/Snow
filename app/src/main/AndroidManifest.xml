@@ -35,7 +35,8 @@
         <activity android:name=".UI.activity.ClockViewActivity" />
         <activity android:name=".UI.activity.MiStepViewActivity" />
         <activity android:name=".UI.activity.BankActivity" />
-        <activity android:name=".UI.activity.TaoBaoSaleProgressViewActivity"></activity>
+        <activity android:name=".UI.activity.TaoBaoSaleProgressViewActivity" />
+        <activity android:name=".UI.activity.ViewStudyActivity"></activity>
     </application>
 
 </manifest>

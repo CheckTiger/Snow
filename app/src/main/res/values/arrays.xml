@@ -27,7 +27,9 @@
         <item>系统权限</item>
         <item>三级联动</item>
     </string-array>
-
+    <string-array name="knowledge_fragment_item">
+        <item>view知识学习</item>
+    </string-array>
     <string-array name="tools_fragment_item">
         <item>本页面所有的工具类来自https://github.com/AbrahamCaiJin/CommonUtilLibrary</item>
         <item>银行卡管理类</item>
