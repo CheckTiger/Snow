@@ -3,7 +3,7 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <cn.sxh.snowfox.view.NewsListView
+    <cn.sxh.snowfox.view.DefinedAndCollectView.NewsListView
         android:id="@+id/news_list_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

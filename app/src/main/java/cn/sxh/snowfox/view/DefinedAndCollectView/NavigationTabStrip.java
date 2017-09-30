@@ -1,4 +1,4 @@
-package cn.sxh.snowfox.view;
+package cn.sxh.snowfox.view.DefinedAndCollectView;
 
 
 import android.animation.Animator;

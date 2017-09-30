@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:background="#38A6F0"
     tools:context="cn.sxh.snowfox.UI.activity.MiStepViewActivity">
-    <cn.sxh.snowfox.view.StepView
+    <cn.sxh.snowfox.view.DefinedAndCollectView.StepView
         android:id="@+id/stepView"
         android:layout_gravity="center"
         android:layout_width="match_parent"

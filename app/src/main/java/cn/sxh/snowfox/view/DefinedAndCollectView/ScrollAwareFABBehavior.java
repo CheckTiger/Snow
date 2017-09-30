@@ -14,7 +14,7 @@
  * limitations under the License.
  *
  */
-package cn.sxh.snowfox.view;
+package cn.sxh.snowfox.view.DefinedAndCollectView;
 
 import android.content.Context;
 import android.support.design.widget.CoordinatorLayout;

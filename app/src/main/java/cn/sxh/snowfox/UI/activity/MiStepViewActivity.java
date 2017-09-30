@@ -9,7 +9,7 @@ import android.widget.EditText;
 import android.widget.SeekBar;
 
 import cn.sxh.snowfox.R;
-import cn.sxh.snowfox.view.StepView;
+import cn.sxh.snowfox.view.DefinedAndCollectView.StepView;
 
 public class MiStepViewActivity extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener, TextWatcher {
     private StepView mSvStep;

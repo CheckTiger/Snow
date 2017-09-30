@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context="cn.sxh.snowfox.UI.activity.TaoBaoSaleProgressViewActivity">
 
-    <cn.sxh.snowfox.view.TaoBaoSaleProgressView
+    <cn.sxh.snowfox.view.DefinedAndCollectView.TaoBaoSaleProgressView
         android:id="@+id/spv"
         android:layout_width="220dp"
         android:layout_height="30dp"

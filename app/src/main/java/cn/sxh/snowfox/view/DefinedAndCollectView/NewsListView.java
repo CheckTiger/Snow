@@ -1,28 +1,34 @@
-package cn.sxh.snowfox.view;
+package cn.sxh.snowfox.view.DefinedAndCollectView;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
+import android.widget.ListView;
 
 /**
  * @author by snow on 2017/8/30
- * @time 00:41
+ * @time 00:37
  * @mail snowtigersong@gmail.com
  */
 
-public class NewsRecyclerView extends RecyclerView {
-    public NewsRecyclerView(Context context) {
+public class NewsListView extends ListView {
+    public NewsListView(Context context) {
         super(context);
     }
 
-    public NewsRecyclerView(Context context, @Nullable AttributeSet attrs) {
+    public NewsListView(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public NewsRecyclerView(Context context, @Nullable AttributeSet attrs, int defStyle) {
-        super(context, attrs, defStyle);
+    public NewsListView(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
     }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        return true;
+    }
+
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         // TODO Auto-generated method stub
@@ -30,5 +36,4 @@ public class NewsRecyclerView extends RecyclerView {
                 MeasureSpec.AT_MOST);
         super.onMeasure(widthMeasureSpec, expandSpec);
     }
-
 }

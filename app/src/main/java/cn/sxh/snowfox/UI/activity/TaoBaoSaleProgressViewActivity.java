@@ -7,7 +7,7 @@ import android.widget.SeekBar;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import cn.sxh.snowfox.R;
-import cn.sxh.snowfox.view.TaoBaoSaleProgressView;
+import cn.sxh.snowfox.view.DefinedAndCollectView.TaoBaoSaleProgressView;
 
 public class TaoBaoSaleProgressViewActivity extends AppCompatActivity {
 

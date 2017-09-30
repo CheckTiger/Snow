@@ -7,7 +7,7 @@ import android.widget.FrameLayout;
 import butterknife.BindView;
 import cn.sxh.snowfox.R;
 import cn.sxh.snowfox.base.BaseFragment;
-import cn.sxh.snowfox.view.NavigationTabStrip;
+import cn.sxh.snowfox.view.DefinedAndCollectView.NavigationTabStrip;
 
 /**
  * Created by snow on 2017/8/5.

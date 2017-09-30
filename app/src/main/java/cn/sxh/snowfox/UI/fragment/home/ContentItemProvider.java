@@ -6,20 +6,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.zhy.autolayout.utils.AutoUtils;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import cn.sxh.snowfox.R;
 import cn.sxh.snowfox.adapter.newsAdapter;
 import cn.sxh.snowfox.bean.JuHeBannerToutiaoEntity;
-import cn.sxh.snowfox.view.NewsListView;
+import cn.sxh.snowfox.view.DefinedAndCollectView.NewsListView;
 import cn.sxh.snowfox.view.multitype.ItemViewProvider;
 
 /**
