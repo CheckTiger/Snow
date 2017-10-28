@@ -14,6 +14,7 @@ import java.util.Map;
 import cn.sxh.snowfox.AppContext;
 import cn.sxh.snowfox.R;
 import cn.sxh.snowfox.UI.activity.NewsActivity;
+import cn.sxh.snowfox.UI.activity.PaintActivity;
 import cn.sxh.snowfox.UI.activity.ViewStudyActivity;
 import cn.sxh.snowfox.adapter.AllFragmentAdapter;
 import cn.sxh.snowfox.adapter.KnowledgeExpandableListViewAdapter;
@@ -55,6 +56,10 @@ public class KnowledgeFragment extends BaseFragment {
             case 0:
                 Intent intent = new Intent(getActivity(), ViewStudyActivity.class);
                 startActivity(intent);
+                break;
+            case 1:
+                Intent paintIntent = new Intent(getActivity(), PaintActivity.class);
+                startActivity(paintIntent);
                 break;
         }
     }
