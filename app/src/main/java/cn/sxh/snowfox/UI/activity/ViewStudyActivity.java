@@ -2,10 +2,6 @@ package cn.sxh.snowfox.UI.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.widget.Button;
-import android.widget.EditText;
 
 import com.socks.library.KLog;
 
@@ -30,6 +26,5 @@ public class ViewStudyActivity extends AppCompatActivity {
 
     private void changeViewType(int type) {
         viewStep.setViewType(type);
-        KLog.e(TAG,"-Left-"+viewStep.getLeft()+"-Top-"+viewStep.getTop()+"-Right-"+viewStep.getRight()+"-Bottom-"+viewStep.getBottom());
     }
 }
