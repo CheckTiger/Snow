@@ -1,6 +1,7 @@
 package cn.sxh.snowfox.view.DefinedAndCollectView;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.LinearGradient;
@@ -10,6 +11,8 @@ import android.graphics.Shader;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
+
+import cn.sxh.snowfox.R;
 
 /**
  * Created by Administrator on 2017/10/31 0031.
@@ -38,6 +41,9 @@ public class PaintKnowledgeView extends View {
 
     public PaintKnowledgeView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.PaintKnowledgeView);
+        DEFAULT_TYPE = a.getInteger(R.styleable.PaintKnowledgeView_type,LINEAR_GRADIENT);
+        a.recycle();
         init();
     }
 
