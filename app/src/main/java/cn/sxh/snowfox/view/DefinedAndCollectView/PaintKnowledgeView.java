@@ -49,26 +49,28 @@ public class PaintKnowledgeView extends View {
 
     private void init() {
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+
         if (DEFAULT_TYPE == LINEAR_GRADIENT) {
             mShader = new LinearGradient(100, 100, 500, 500,
                     Color.parseColor("#E91E63"), Color.parseColor("#2196F3"), Shader.TileMode.CLAMP);
         }
+
         if (DEFAULT_TYPE == RadialGradient) {
             mShader = new RadialGradient(300, 300,200,
                     Color.parseColor("#E91E63"), Color.parseColor("#2196F3"), Shader.TileMode.CLAMP);
         }
+
+        mPaint.setShader(mShader);
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         if (DEFAULT_TYPE == LINEAR_GRADIENT) {
-            mPaint.setShader(mShader);
             canvas.drawCircle(300,300,200,mPaint);
         }
 
         if (DEFAULT_TYPE == RadialGradient) {
-            mPaint.setShader(mShader);
             canvas.drawCircle(300,300,200,mPaint);
         }
     }
