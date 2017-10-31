@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.LinearGradient;
 import android.graphics.Paint;
+import android.graphics.RadialGradient;
 import android.graphics.Shader;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
@@ -22,9 +23,9 @@ public class PaintKnowledgeView extends View {
      * 3.MIRROR表示，当绘制的图形尺寸大于Bitmap尺寸时，MIRROR也会用Bitmap重复平铺整个绘图区域，
      * 与REPEAT不同的是，两个相邻的Bitmap互为镜像。
      */
-    public int DEFAULT_TYPE = 1;//线性渐变
+    public int DEFAULT_TYPE = 2;//线性渐变
     public static final int LINEAR_GRADIENT = 1;//线性渐变
-    public static final int RadialGradient  = 1;//线性渐变
+    public static final int RadialGradient  = 2;//线性渐变
     private Paint mPaint;//画笔
     private Shader mShader;//着色器
     public PaintKnowledgeView(Context context) {
@@ -41,9 +42,13 @@ public class PaintKnowledgeView extends View {
     }
 
     private void init() {
+        mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         if (DEFAULT_TYPE == LINEAR_GRADIENT) {
-            mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
             mShader = new LinearGradient(100, 100, 500, 500,
+                    Color.parseColor("#E91E63"), Color.parseColor("#2196F3"), Shader.TileMode.CLAMP);
+        }
+        if (DEFAULT_TYPE == RadialGradient) {
+            mShader = new RadialGradient(300, 300,200,
                     Color.parseColor("#E91E63"), Color.parseColor("#2196F3"), Shader.TileMode.CLAMP);
         }
     }
@@ -56,6 +61,10 @@ public class PaintKnowledgeView extends View {
             canvas.drawCircle(300,300,200,mPaint);
         }
 
+        if (DEFAULT_TYPE == RadialGradient) {
+            mPaint.setShader(mShader);
+            canvas.drawCircle(300,300,200,mPaint);
+        }
     }
 
     public void setViewType(int type) {
