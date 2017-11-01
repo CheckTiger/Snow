@@ -27,7 +27,7 @@ public class PaintKnowledgeView extends View {
      * 3.MIRROR表示，当绘制的图形尺寸大于Bitmap尺寸时，MIRROR也会用Bitmap重复平铺整个绘图区域，
      * 与REPEAT不同的是，两个相邻的Bitmap互为镜像。
      */
-    public int DEFAULT_TYPE = 0;//线性渐变
+    public int DEFAULT_TYPE = 0;//默认无使用着色器
     public static final int LINEAR_GRADIENT = 1;//线性渐变
     public static final int RadialGradient  = 2;//辐射渐变
     public static final int SweepGradient   = 3;//扫描渐变
@@ -52,18 +52,22 @@ public class PaintKnowledgeView extends View {
     private void init() {
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
 
+        if (DEFAULT_TYPE == 0) {
+            // TODO: 2017/11/1 0001 设置view类型为0，是为了区别显示，删除此处类型也没事 
+        }
+        
         if (DEFAULT_TYPE == LINEAR_GRADIENT) {
             mShader = new LinearGradient(100, 100, 500, 500,
                     Color.parseColor("#E91E63"), Color.parseColor("#2196F3"), Shader.TileMode.CLAMP);
         }
 
         if (DEFAULT_TYPE == RadialGradient) {
-            mShader = new RadialGradient(300, 300,200,
+            mShader = new RadialGradient(300, 200,200,
                     Color.parseColor("#E91E63"), Color.parseColor("#2196F3"), Shader.TileMode.MIRROR);
         }
 
         if (DEFAULT_TYPE == SweepGradient) {
-            mShader = new SweepGradient(300, 300,
+            mShader = new SweepGradient(300, 200,
                     Color.parseColor("#E91E63"), Color.parseColor("#2196F3"));
         }
         mPaint.setShader(mShader);
@@ -72,16 +76,20 @@ public class PaintKnowledgeView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+        if (DEFAULT_TYPE == 0) {
+            canvas.drawCircle(300,200,200,mPaint);
+        }
+
         if (DEFAULT_TYPE == LINEAR_GRADIENT) {
-            canvas.drawCircle(300,300,200,mPaint);
+            canvas.drawCircle(300,200,200,mPaint);
         }
 
         if (DEFAULT_TYPE == RadialGradient) {
-            canvas.drawCircle(300,300,200,mPaint);
+            canvas.drawCircle(300,200,200,mPaint);
         }
 
         if (DEFAULT_TYPE == SweepGradient) {
-            canvas.drawCircle(300,300,200,mPaint);
+            canvas.drawCircle(300,200,200,mPaint);
         }
     }
 
