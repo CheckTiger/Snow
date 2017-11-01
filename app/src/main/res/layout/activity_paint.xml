@@ -23,8 +23,8 @@
     <cn.sxh.snowfox.view.DefinedAndCollectView.PaintKnowledgeView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        app:type="1"/>
+        android:layout_weight="3"
+        app:type="7"/>
     <cn.sxh.snowfox.view.DefinedAndCollectView.PaintKnowledgeView
         android:layout_width="match_parent"
         android:layout_height="0dp"
