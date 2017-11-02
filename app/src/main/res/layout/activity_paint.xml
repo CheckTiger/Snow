@@ -8,16 +8,26 @@
     android:background="#f8f8f8"
     tools:context="cn.sxh.snowfox.UI.activity.PaintActivity">
 
-    <android.support.design.widget.TabLayout
-        android:id="@+id/tabLayout"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:background="@android:color/white"
-        app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget"
-        app:tabMode="scrollable" />
+    <!--<android.support.design.widget.TabLayout-->
+        <!--android:id="@+id/tabLayout"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="48dp"-->
+        <!--android:background="@android:color/white"-->
+        <!--app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget"-->
+        <!--app:tabMode="scrollable" />-->
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/pager"
+    <!--<android.support.v4.view.ViewPager-->
+        <!--android:id="@+id/pager"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent" />-->
+    <cn.sxh.snowfox.view.DefinedAndCollectView.PaintKnowledgeView
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        app:type="7"/>
+    <cn.sxh.snowfox.view.DefinedAndCollectView.PaintKnowledgeView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        app:type="0"/>
 </LinearLayout>
