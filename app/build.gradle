@@ -47,21 +47,6 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    //懒人库
-    //dagger支持
-    //RxAndroid支持
-    //RxJava支持
-    //retrofit网络框架
-    //gson数据解析
-    //RxJava支持
-    //retrofit的底层网络框架
-    //拦截器
-    //上下拉刷新的实现
-    //复杂列表的实现
-    //轮播图的实现
-    //加载图片的框架
-    //log日志
-
     compile 'com.android.support:appcompat-v7:26.+'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.zhy:autolayout:1.4.3'
@@ -69,7 +54,7 @@ dependencies {
     compile 'com.jakewharton:butterknife:8.6.0'
     annotationProcessor  'com.jakewharton:butterknife-compiler:8.6.0'
     compile 'com.google.dagger:dagger:2.5'
-    annotationProcessor  'com.google.dagger:dagger:2.5'
+    annotationProcessor  'com.google.dagger:dagger-compiler:2.5'
     compile 'io.reactivex:rxandroid:1.2.1'
     compile 'io.reactivex:rxjava:1.1.6'
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
