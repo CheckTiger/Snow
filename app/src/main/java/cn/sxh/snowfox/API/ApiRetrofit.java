@@ -14,8 +14,10 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ApiRetrofit {
 
     private static SnowFoxApi snowFoxApi;
+    private static SnowFoxApi snowFoxApi1;
 //    private static final String HOST = "http://www.51qunawan.cn/QunawanService/mobile/";
     private static final String HOST = "http://v.juhe.cn/";
+    private static final String THS_HOST = "http://m.10jqka.com.cn/wapapi/hknews/getnews/";
 //    private static final String HOST = "http://v.juhe.cn/toutiao/index?&key=3988f8911b515e58d49ac192823d9960";
 
     public static SnowFoxApi getInstance() {
@@ -29,6 +31,19 @@ public class ApiRetrofit {
             snowFoxApi = retrofit.create(SnowFoxApi.class);
         }
         return snowFoxApi;
+    }
+
+    public static SnowFoxApi getThsInstance() {
+        if (snowFoxApi1 == null) {
+            Retrofit retrofit = new Retrofit.Builder()
+                    .client(getOkHttpClient())
+                    .baseUrl(THS_HOST)
+                    .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+            snowFoxApi1 = retrofit.create(SnowFoxApi.class);
+        }
+        return snowFoxApi1;
     }
 
     private static OkHttpClient getOkHttpClient(){

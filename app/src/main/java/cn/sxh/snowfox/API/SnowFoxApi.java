@@ -2,11 +2,13 @@ package cn.sxh.snowfox.API;
 
 import cn.sxh.snowfox.bean.BannerEntity;
 import cn.sxh.snowfox.bean.JuHeBannerToutiaoEntity;
+import cn.sxh.snowfox.bean.ThsNewsBean;
 import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 import rx.Observable;
 
 /**
@@ -42,4 +44,7 @@ public interface SnowFoxApi {
     @POST("toutiao/index")
     @FormUrlEncoded
     Observable<JuHeBannerToutiaoEntity> getBannerByPost(@Field("key")String key);
+
+    @GET("{index}")
+    Observable<ThsNewsBean> getNewsList(@Path("index") String index);
 }
