@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Snow.iml" filepath="$PROJECT_DIR$/Snow.iml" />
+      <module fileurl="file://D:\SnowWork\demo\SnowFox\Snow.iml" filepath="D:\SnowWork\demo\SnowFox\Snow.iml" />
       <module fileurl="file://E:\HexinWork\Snow\SnowFox.iml" filepath="E:\HexinWork\Snow\SnowFox.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/green-dao/green-dao.iml" filepath="$PROJECT_DIR$/green-dao/green-dao.iml" />
