@@ -17,6 +17,7 @@
     <color name="color_type_warning">#e8bd4b</color>
     <color name="color_type_style">#72AC37</color>
     <color name="color_type_success">#90b06e</color>
+    <color name="color_type_step_view">#890ed2ae</color>
 
     <!--系统全局颜色-->
     <color name="xml_color_text_normal_gray">#939393</color><!--普通字体灰色-->

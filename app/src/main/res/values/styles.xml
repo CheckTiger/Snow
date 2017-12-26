@@ -46,4 +46,14 @@
     <declare-styleable name="PaintKnowledgeView">
         <attr name="type" format="integer"/>
     </declare-styleable>
+
+    <declare-styleable name="StepViewNew">
+        <attr name="viewType" format="integer"/>
+    </declare-styleable>
+
+    <style name="textStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">30dp</item>
+        <!--<item name="android:gravity">center</item>-->
+    </style>
 </resources>

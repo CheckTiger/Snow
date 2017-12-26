@@ -3,6 +3,7 @@ package cn.sxh.snowfox.UI.fragment;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.Toolbar;
@@ -11,11 +12,13 @@ import android.widget.Toast;
 
 import com.socks.library.KLog;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import cn.sxh.snowfox.API.ApiRetrofit;
 import cn.sxh.snowfox.R;
+import cn.sxh.snowfox.adapter.TabPagerAdapter;
 import cn.sxh.snowfox.base.NewBaseFragment;
 import cn.sxh.snowfox.bean.ThsNewsBean;
 import cn.sxh.snowfox.view.fragmentView.MusicFragemntView;
@@ -43,6 +46,9 @@ public class MusicFragment extends NewBaseFragment implements MusicFragemntView 
 
     private ThsNewsBean mThsNewsBean;
     private String index = "1";
+    private String[] titles = {"港股", "轻音乐", "鬼故事","小说","港股", "轻音乐", "鬼故事","小说"};
+    private List<Fragment> list;
+    private TabPagerAdapter pagerAdapter;
 
     @Override
     public void initInjector() {
@@ -51,27 +57,22 @@ public class MusicFragment extends NewBaseFragment implements MusicFragemntView 
 
     @Override
     public void initViews(View view) {
+        list = new ArrayList<>();
+        list.add(new HypnosisFragment());
+        list.add(new HypnosisFragment());
+        list.add(new HypnosisFragment());
+        list.add(new HypnosisFragment());
+        list.add(new HypnosisFragment());
+        list.add(new HypnosisFragment());
+        list.add(new HypnosisFragment());
+        list.add(new HypnosisFragment());
         ApiRetrofit.getThsInstance().getNewsList(index)
                 .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Subscriber<ThsNewsBean>() {
-                    @Override
-                    public void onCompleted() {
-
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        KLog.e("sxh","请求数据失败------->>>>>>"+e.getMessage());
-                    }
-
-                    @Override
-                    public void onNext(ThsNewsBean thsNewsBean) {
-                        mThsNewsBean = thsNewsBean;
-                        for (int i = 0; i < mThsNewsBean.getData().size(); i++) {
-                            KLog.e("sxh","请求数据------->>>>>>"+mThsNewsBean.getData().get(i).getTitle());
-                        }
-                    }
-                });
+                .subscribe(mSubMusic);
+        pagerAdapter = new TabPagerAdapter(getActivity().getSupportFragmentManager(), list, titles);
+        viewPager.setAdapter(pagerAdapter);
+        tabs.setTabMode(TabLayout.MODE_SCROLLABLE);
+        tabs.setupWithViewPager(viewPager);
     }
 
     @Override
@@ -98,5 +99,22 @@ public class MusicFragment extends NewBaseFragment implements MusicFragemntView 
     public void initViewPager(List<String> listTab) {
         Toast.makeText(getActivity(), "添加一些音乐文件", Toast.LENGTH_SHORT).show();
     }
+
+    private final Subscriber<ThsNewsBean> mSubMusic = new Subscriber<ThsNewsBean>() {
+        @Override
+        public void onCompleted() {
+
+        }
+
+        @Override
+        public void onError(Throwable e) {
+            KLog.e("sxh","请求数据失败------->>>>>>"+e.getMessage());
+        }
+
+        @Override
+        public void onNext(ThsNewsBean thsNewsBean) {
+            mThsNewsBean = thsNewsBean;
+        }
+    };
 
 }
