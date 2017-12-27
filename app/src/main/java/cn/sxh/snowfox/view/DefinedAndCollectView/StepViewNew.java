@@ -2,6 +2,7 @@ package cn.sxh.snowfox.view.DefinedAndCollectView;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Paint;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
@@ -18,6 +19,8 @@ public class StepViewNew extends View {
     private static int VerticalStepViewForward = 1;//垂直方向从前往后
     private static int VerticalStepViewReverse = 2;//垂直方向从后往前
     private static int DefaultTypeView = 0;//默认为水平方向
+
+    private Paint mBitmapPaint;
     public StepViewNew(Context context) {
         this(context,null);
     }
@@ -32,6 +35,7 @@ public class StepViewNew extends View {
         DefaultTypeView = a.getInteger(R.styleable.StepViewNew_viewType, HorizontalStepView);
         this.setBackgroundColor(getResources().getColor(R.color.color_type_step_view));
     }
+
 
     public void setDefaultTypeView(int defaultTypeView) {
         DefaultTypeView = defaultTypeView;
