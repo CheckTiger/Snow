@@ -3,6 +3,7 @@ package cn.sxh.snowfox.view.DefinedAndCollectView;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
@@ -20,8 +21,11 @@ public class StepViewNew extends View {
     private static int VerticalStepViewForward = 1;//垂直方向从前往后
     private static int VerticalStepViewReverse = 2;//垂直方向从后往前
     private static int DefaultTypeView = 0;//默认为水平方向
+    private static int DEFAULT_DISTANCE = 20;//默认为水平方向间距
 
     private Paint mBitmapPaint;//图片的画笔
+    private Paint mTextPaint;//文字的画笔
+    private int DEFAUT_COLOR;
     public StepViewNew(Context context) {
         this(context,null);
     }
@@ -30,16 +34,29 @@ public class StepViewNew extends View {
         this(context, attrs,0);
     }
 
+    /*在构造函数方法中初始化画笔*/
     public StepViewNew(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.StepViewNew);
         DefaultTypeView = a.getInteger(R.styleable.StepViewNew_viewType, HorizontalStepView);
+        DefaultTextSize = a.getDimensionPixelSize(R.styleable.StepViewNew_default_textSize, DefaultTextSize);
+        VerticalStepViewForward = a.getDimensionPixelOffset(R.styleable.StepViewNew_VerticalStepViewForward, VerticalStepViewForward);
+        VerticalStepViewForward = a.getDimensionPixelOffset(R.styleable.StepViewNew_VerticalStepViewReverse, VerticalStepViewReverse);
+        DEFAULT_DISTANCE = a.getInteger(R.styleable.StepViewNew_default_distance, DEFAULT_DISTANCE);
+        DEFAUT_COLOR = a.getColor(R.styleable.StepViewNew_paintColor, DEFAULT_DISTANCE);
+        a.recycle();
         this.setBackgroundColor(getResources().getColor(R.color.color_type_step_view));
+        mBitmapPaint = new Paint(Paint.DEV_KERN_TEXT_FLAG);
+        mBitmapPaint.setColor(DEFAUT_COLOR);
+        mTextPaint = new Paint(Paint.DEV_KERN_TEXT_FLAG);
+        mTextPaint.setTextSize(DefaultTextSize);
+        mTextPaint.setColor(DEFAUT_COLOR);
     }
 
     @Override
     public void draw(Canvas canvas) {
         super.draw(canvas);
+        canvas.drawText("宋学虎",0,0,mTextPaint);
     }
 
     public void setDefaultTypeView(int defaultTypeView) {

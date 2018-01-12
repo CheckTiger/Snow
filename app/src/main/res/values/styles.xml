@@ -49,6 +49,12 @@
 
     <declare-styleable name="StepViewNew">
         <attr name="viewType" format="integer"/>
+        <attr name="DefaultTypeView" format="integer"/>
+        <attr name="default_distance" format="integer"/>
+        <attr name="default_textSize" format="integer"/>
+        <attr name="VerticalStepViewForward" format="integer"/>
+        <attr name="VerticalStepViewReverse" format="integer"/>
+        <attr name="paintColor" format="color"/>
     </declare-styleable>
 
     <style name="textStyle">
