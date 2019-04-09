@@ -11,6 +11,8 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.socks.library.KLog;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import cn.sxh.snowfox.R;
@@ -43,6 +45,49 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         initView();
+        KLog.e("sxh","onCreate: --------->>>>>");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        KLog.e("sxh","onStop: --------->>>>>");
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        KLog.e("sxh","onStart: --------->>>>>");
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        KLog.e("sxh","onRestart: --------->>>>>");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        KLog.e("sxh","onPause: --------->>>>>");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        KLog.e("sxh","onDestroy: --------->>>>>");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        KLog.e("sxh","onResume: --------->>>>>");
+    }
+
+    @Override
+    public void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        KLog.e("sxh","onAttachedToWindow: --------->>>>>");
     }
 
     private void initView() {
