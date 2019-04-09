@@ -38,6 +38,7 @@
         <activity android:name=".UI.activity.TaoBaoSaleProgressViewActivity" />
         <activity android:name=".UI.activity.ViewStudyActivity" />
         <activity android:name=".UI.activity.PaintActivity"></activity>
+        <service android:name=".service.LocalIntentService"/>
     </application>
 
 </manifest>
