@@ -1,9 +1,11 @@
 package cn.sxh.snowfox.API;
 
+import java.util.List;
+
 import cn.sxh.snowfox.bean.BannerEntity;
 import cn.sxh.snowfox.bean.JuHeBannerToutiaoEntity;
 import cn.sxh.snowfox.bean.ThsNewsBean;
-import retrofit2.http.Body;
+import io.reactivex.Flowable;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;

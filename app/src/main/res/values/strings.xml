@@ -5,6 +5,7 @@
     <string name="surprise">惊喜</string>
     <string name="club">社群</string>
     <string name="technology">技术</string>
+    <string name="recapture">重拍</string>
     <!--menu-->
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>

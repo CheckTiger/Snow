@@ -16,7 +16,7 @@ import cn.sxh.snowfox.R;
  */
 
 public class StepViewNew extends View {
-    private static int DefaultTextSize = 15;//默认字体大小
+    private static int DefaultTextSize = 35;//默认字体大小
     private static int HorizontalStepView = 0;//水平方向
     private static int VerticalStepViewForward = 1;//垂直方向从前往后
     private static int VerticalStepViewReverse = 2;//垂直方向从后往前
@@ -26,6 +26,7 @@ public class StepViewNew extends View {
     private Paint mBitmapPaint;//图片的画笔
     private Paint mTextPaint;//文字的画笔
     private int DEFAUT_COLOR;
+    private String [] title;
     public StepViewNew(Context context) {
         this(context,null);
     }
@@ -50,16 +51,26 @@ public class StepViewNew extends View {
         mBitmapPaint.setColor(DEFAUT_COLOR);
         mTextPaint = new Paint(Paint.DEV_KERN_TEXT_FLAG);
         mTextPaint.setTextSize(DefaultTextSize);
-        mTextPaint.setColor(DEFAUT_COLOR);
+        mTextPaint.setColor(Color.parseColor("#E91E63"));
     }
 
     @Override
     public void draw(Canvas canvas) {
         super.draw(canvas);
-        canvas.drawText("宋学虎",0,0,mTextPaint);
+        int width = 50;
+        for (int i = 0; i < title.length; i++) {
+            width = width + 150 ;
+            canvas.drawText(title[i],width,300,mTextPaint);
+        }
+//        canvas.drawText("宋学虎",200,300,mTextPaint);
+//        canvas.drawText("宋学虎",350,300,mTextPaint);
+//        canvas.drawText("宋学虎",500,300,mTextPaint);
+//        canvas.drawText("宋学虎",650,300,mTextPaint);
     }
 
     public void setDefaultTypeView(int defaultTypeView) {
         DefaultTypeView = defaultTypeView;
     }
+    public void  setTitle(String[] titles){
+        this.title = titles;}
 }

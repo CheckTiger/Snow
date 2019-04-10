@@ -53,6 +53,12 @@ public class AppContext extends Application {
         initDB();
     }
 
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(this);
+    }
+
     private void initLeakCanary() {
         if (BuildConfig.DEBUG) {
             refWatcher = LeakCanary.install(this);

@@ -3,8 +3,10 @@ package cn.sxh.snowfox.di.component;
 import android.app.Activity;
 import android.content.Context;
 
+import cn.sxh.snowfox.UI.fragment.ArcGisFragment;
 import cn.sxh.snowfox.UI.fragment.CategoryFragment;
 import cn.sxh.snowfox.UI.fragment.MusicFragment;
+import cn.sxh.snowfox.UI.fragment.ShopFragment;
 import cn.sxh.snowfox.UI.fragment.TechnologyFragment;
 import cn.sxh.snowfox.di.module.FragmentModule;
 import cn.sxh.snowfox.di.scope.ContextLife;
@@ -29,4 +31,6 @@ public interface FragmentComponent {
 
     void inject(TechnologyFragment categoryFragment);
     void inject(MusicFragment musicFragment);
+    void inject(ShopFragment shopFragment);
+    void inject(ArcGisFragment arcGisFragment);
 }

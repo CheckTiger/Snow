@@ -51,7 +51,7 @@
         <activity android:name=".UI.activity.BankActivity" />
         <activity android:name=".UI.activity.TaoBaoSaleProgressViewActivity" />
         <activity android:name=".UI.activity.ViewStudyActivity" />
-        <activity android:name=".UI.activity.PaintActivity"></activity>
+        <activity android:name=".UI.activity.PaintActivity"/>
     </application>
 
 </manifest>

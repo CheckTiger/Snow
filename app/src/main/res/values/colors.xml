@@ -22,4 +22,6 @@
     <!--系统全局颜色-->
     <color name="xml_color_text_normal_gray">#939393</color><!--普通字体灰色-->
     <color name="xml_color_text_normal_gray_cd">#cdcdcd</color><!--更淡字体灰色&间隔线灰色-->
+
+    <color name="take_picture_bg">#7f000000</color>
 </resources>

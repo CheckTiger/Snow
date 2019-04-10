@@ -3,12 +3,12 @@ apply plugin: 'com.android.application'
 //apply plugin: 'me.tatarka.retrolambda'
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion 27
     buildToolsVersion "26.0.2"
     defaultConfig {
         applicationId "cn.sxh.snowfox"
         minSdkVersion 15
-        targetSdkVersion 26
+        targetSdkVersion 27
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -28,6 +28,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    dataBinding {
+        enabled = true
+    }
+
     sourceSets {
         main {
             java.srcDirs = ['src/main/java', 'src/main/java-gen']
@@ -35,7 +40,12 @@ android {
     }
 
     packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/NOTICE'
         exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/LGPL2.1'
     }
 
     compileOptions {
@@ -47,23 +57,47 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.android.support:appcompat-v7:26.+'
+    compile 'com.android.support:appcompat-v7:27.+'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.zhy:autolayout:1.4.3'
-    compile 'com.android.support:design:26.1.0'
+    compile 'com.android.support:design:27.1.1'
     compile 'com.jakewharton:butterknife:8.6.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.6.0'
     compile 'com.google.dagger:dagger:2.5'
     annotationProcessor 'com.google.dagger:dagger-compiler:2.5'
+
+    //retrofit+rxJava+rxAndroid
     compile 'io.reactivex:rxandroid:1.2.1'
     compile 'io.reactivex:rxjava:1.1.6'
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'
     compile 'com.squareup.retrofit2:converter-jackson:2.0.0'
     compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    compile 'io.reactivex.rxjava2:rxjava:2.1.6'
+
+    //Okhttp
     compile 'com.squareup.okhttp3:okhttp:3.8.1'
     compile 'com.squareup.okhttp3:logging-interceptor:3.0.1'
     compile 'com.squareup.okio:okio:1.13.0'
+
+    /*ArcGIS Runtime SDK for Android*/
+    compile 'com.esri.arcgis.android:arcgis-android:10.2.9'
+
+    // ViewModel and LiveData
+    implementation "android.arch.lifecycle:runtime:1.1.1"
+    implementation "android.arch.lifecycle:extensions:1.1.1"
+    annotationProcessor "android.arch.lifecycle:compiler:1.1.1"
+
+    // Room
+    implementation "android.arch.persistence.room:runtime:1.1.1"
+
+    annotationProcessor "android.arch.persistence.room:compiler:1.1.1"
+    // Java8 support for Lifecycles
+    implementation "android.arch.lifecycle:common-java8:1.1.1"
+    // ReactiveStreams support for LiveData
+    implementation "android.arch.lifecycle:reactivestreams:1.1.1"
+
     compile 'com.github.Aspsine:SwipeToLoadLayout:1.0.3'
     compile 'me.drakeet.multitype:multitype:3.2.0'
     compile 'com.youth.banner:banner:1.4.9'
@@ -77,4 +111,5 @@ dependencies {
     provided 'org.glassfish:javax.annotation:10.0-b28'
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
     implementation files('libs/AMap3DMap_5.7.0_AMapNavi_5.6.0_AMapSearch_5.7.0_AMapLocation_3.7.0_20180109.jar')
+    compile 'com.android.support:multidex:1.0.3'
 }
