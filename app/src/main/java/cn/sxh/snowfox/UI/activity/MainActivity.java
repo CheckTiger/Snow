@@ -1,5 +1,6 @@
 package cn.sxh.snowfox.UI.activity;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
@@ -21,6 +22,7 @@ import cn.sxh.snowfox.UI.fragment.MusicFragment;
 import cn.sxh.snowfox.UI.fragment.ShopFragment;
 import cn.sxh.snowfox.UI.fragment.SurpriseFragment;
 import cn.sxh.snowfox.UI.fragment.TechnologyFragment;
+import cn.sxh.snowfox.service.LocalIntentService;
 
 public class MainActivity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener {
 
@@ -46,6 +48,13 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
         ButterKnife.bind(this);
         initView();
         KLog.e("sxh","onCreate: --------->>>>>");
+        Intent intent = new Intent(this, LocalIntentService.class);
+        intent.putExtra("task_action", "sxh");
+        startService(intent);
+        intent.putExtra("task_action", "sxh1");
+        startService(intent);
+        intent.putExtra("task_action", "sxh2");
+        startService(intent);
     }
 
     @Override

@@ -22,10 +22,9 @@ public class LocalIntentService extends IntentService {
     /**
      * Creates an IntentService.  Invoked by your subclass's constructor.
      *
-     * @param name Used to name the worker thread, important only for debugging.
      */
-    public LocalIntentService(String name) {
-        super(name);
+    public LocalIntentService() {
+        super(TAG);
     }
 
     @Override
@@ -33,6 +32,12 @@ public class LocalIntentService extends IntentService {
         String action = intent.getStringExtra("task_action");
         KLog.e("sxh", "receive the task --->>>" + action);
         if (action.equals("sxh")) {
+            KLog.e("sxh", "handle the task --->>>" + action);
+        }
+        if (action.equals("sxh1")) {
+            KLog.e("sxh", "handle the task --->>>" + action);
+        }
+        if (action.equals("sxh2")) {
             KLog.e("sxh", "handle the task --->>>" + action);
         }
     }
