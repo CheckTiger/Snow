@@ -4,7 +4,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 27
-    buildToolsVersion "26.0.2"
+    buildToolsVersion '28.0.2'
     defaultConfig {
         applicationId "cn.sxh.snowfox"
         minSdkVersion 15
@@ -56,33 +56,33 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.android.support:appcompat-v7:27.+'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'com.zhy:autolayout:1.4.3'
-    compile 'com.android.support:design:27.1.1'
-    compile 'com.jakewharton:butterknife:8.6.0'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:27.+'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation 'com.zhy:autolayout:1.4.3'
+    implementation 'com.android.support:design:27.1.1'
+    implementation 'com.jakewharton:butterknife:8.6.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.6.0'
-    compile 'com.google.dagger:dagger:2.5'
+    implementation 'com.google.dagger:dagger:2.5'
     annotationProcessor 'com.google.dagger:dagger-compiler:2.5'
 
     //retrofit+rxJava+rxAndroid
-    compile 'io.reactivex:rxandroid:1.2.1'
-    compile 'io.reactivex:rxjava:1.1.6'
-    compile 'com.squareup.retrofit2:retrofit:2.1.0'
-    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
-    compile 'com.squareup.retrofit2:converter-jackson:2.0.0'
-    compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
-    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
-    compile 'io.reactivex.rxjava2:rxjava:2.1.6'
+    implementation 'io.reactivex:rxandroid:1.2.1'
+    implementation 'io.reactivex:rxjava:1.1.6'
+    implementation 'com.squareup.retrofit2:retrofit:2.1.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.1.0'
+    implementation 'com.squareup.retrofit2:converter-jackson:2.0.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.6'
 
     //Okhttp
-    compile 'com.squareup.okhttp3:okhttp:3.8.1'
-    compile 'com.squareup.okhttp3:logging-interceptor:3.0.1'
-    compile 'com.squareup.okio:okio:1.13.0'
+    implementation 'com.squareup.okhttp3:okhttp:3.8.1'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.0.1'
+    implementation 'com.squareup.okio:okio:1.13.0'
 
     /*ArcGIS Runtime SDK for Android*/
-    compile 'com.esri.arcgis.android:arcgis-android:10.2.9'
+    implementation 'com.esri.arcgis.android:arcgis-android:10.2.9'
 
     // ViewModel and LiveData
     implementation "android.arch.lifecycle:runtime:1.1.1"
@@ -98,18 +98,18 @@ dependencies {
     // ReactiveStreams support for LiveData
     implementation "android.arch.lifecycle:reactivestreams:1.1.1"
 
-    compile 'com.github.Aspsine:SwipeToLoadLayout:1.0.3'
-    compile 'me.drakeet.multitype:multitype:3.2.0'
-    compile 'com.youth.banner:banner:1.4.9'
-    compile 'com.github.bumptech.glide:glide:4.0.0'
-    compile 'com.github.zhaokaiqiang.klog:library:1.4.0'
-    compile 'org.greenrobot:greendao:3.0.1'
-    compile 'org.greenrobot:greendao-generator:3.0.0'
-    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
-    testCompile 'junit:junit:4.12'
-    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
-    provided 'org.glassfish:javax.annotation:10.0-b28'
-    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+    implementation 'com.github.Aspsine:SwipeToLoadLayout:1.0.4'
+    implementation 'me.drakeet.multitype:multitype:3.2.0'
+    implementation 'com.youth.banner:banner:1.4.9'
+    implementation 'com.github.bumptech.glide:glide:4.0.0'
+    implementation 'com.github.zhaokaiqiang.klog:library:1.4.0'
+    implementation 'org.greenrobot:greendao:3.0.1'
+    implementation 'org.greenrobot:greendao-generator:3.0.0'
+    testImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+    testImplementation 'junit:junit:4.12'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.5'
+    compileOnly 'org.glassfish:javax.annotation:10.0-b28'
+    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
     implementation files('libs/AMap3DMap_5.7.0_AMapNavi_5.6.0_AMapSearch_5.7.0_AMapLocation_3.7.0_20180109.jar')
-    compile 'com.android.support:multidex:1.0.3'
+    implementation 'com.android.support:multidex:1.0.3'
 }
