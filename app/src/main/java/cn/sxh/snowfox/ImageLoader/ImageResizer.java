@@ -1,5 +1,6 @@
 package cn.sxh.snowfox.ImageLoader;
 
+import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -22,6 +23,11 @@ public class ImageResizer {
 
     public ImageResizer() {
     }
+
+    public static ImageResizer getIntance() {
+        return new ImageResizer();
+    }
+
 
     public Bitmap decodeSampledBitmapFromResource(Resources res, int resId,
                                                   int reqWidth, int reqHeight) {
